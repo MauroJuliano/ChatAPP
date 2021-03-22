@@ -11,11 +11,11 @@ import UIKit
 
 class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    weak var view: ViewController?
+    weak var view: ChatsViewController?
     var usuarioArray = ["John Win", "Rhyssand", "Morrigan"]
     
 
-    init (view: ViewController){
+    init (view: ChatsViewController){
         self.view = view
     }
     

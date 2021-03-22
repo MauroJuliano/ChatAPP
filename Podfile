@@ -6,7 +6,8 @@ target 'MessageAPP' do
   use_frameworks!
 
   # Pods for MessageAPP
-  pod 'MessageKit'	
+  pod 'MessageKit'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing

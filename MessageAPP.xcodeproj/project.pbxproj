@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322BEB242608C31D00ACC7B5 /* customTextField.swift */; };
 		3252CA242605117C00334218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA232605117C00334218 /* AppDelegate.swift */; };
 		3252CA262605117C00334218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA252605117C00334218 /* SceneDelegate.swift */; };
 		3252CA282605117C00334218 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA272605117C00334218 /* ViewController.swift */; };
-		3252CA2B2605117C00334218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3252CA292605117C00334218 /* Main.storyboard */; };
+		3252CA2B2605117C00334218 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3252CA292605117C00334218 /* Chats.storyboard */; };
 		3252CA2D2605117E00334218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3252CA2C2605117E00334218 /* Assets.xcassets */; };
 		3252CA302605117E00334218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3252CA2E2605117E00334218 /* LaunchScreen.storyboard */; };
 		3252CA3B2605117E00334218 /* MessageAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA3A2605117E00334218 /* MessageAPPTests.swift */; };
@@ -24,6 +25,8 @@
 		32B6167F2605382A0072E1A2 /* he.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32B6167D260538290072E1A2 /* he.jpg */; };
 		32B616802605382A0072E1A2 /* she.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32B6167E260538290072E1A2 /* she.jpg */; };
 		32B6168326053D3B0072E1A2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6168226053D3B0072E1A2 /* MessageModel.swift */; };
+		32DB89E72608B4BA00325725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DB89E62608B4BA00325725 /* Main.storyboard */; };
+		32DB89E92608B5A000325725 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB89E82608B5A000325725 /* ChatsViewController.swift */; };
 		36FAC29C13D9A9CB9A053F34 /* Pods_MessageAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B0E414EF84835AC71384A2 /* Pods_MessageAPP.framework */; };
 		3D153D40F556E7FA0CAB2CE5 /* Pods_MessageAPPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775680B5E78E04500244FE8 /* Pods_MessageAPPTests.framework */; };
 		9990A76AF5DDF4118D6CE3CA /* Pods_MessageAPP_MessageAPPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3665409C618A2C1333AEAAC /* Pods_MessageAPP_MessageAPPUITests.framework */; };
@@ -49,11 +52,12 @@
 /* Begin PBXFileReference section */
 		0F6C671AAB48861BB207469A /* Pods-MessageAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageAPP.debug.xcconfig"; path = "Target Support Files/Pods-MessageAPP/Pods-MessageAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		1BCA135805F40ED0E81D7539 /* Pods-MessageAPP-MessageAPPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageAPP-MessageAPPUITests.debug.xcconfig"; path = "Target Support Files/Pods-MessageAPP-MessageAPPUITests/Pods-MessageAPP-MessageAPPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		322BEB242608C31D00ACC7B5 /* customTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 		3252CA202605117C00334218 /* MessageAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252CA232605117C00334218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3252CA252605117C00334218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3252CA272605117C00334218 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3252CA2A2605117C00334218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3252CA2A2605117C00334218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chats.storyboard; sourceTree = "<group>"; };
 		3252CA2C2605117E00334218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3252CA2F2605117E00334218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3252CA312605117E00334218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		32B6167D260538290072E1A2 /* he.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = he.jpg; sourceTree = "<group>"; };
 		32B6167E260538290072E1A2 /* she.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = she.jpg; sourceTree = "<group>"; };
 		32B6168226053D3B0072E1A2 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		32DB89E62608B4BA00325725 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		32DB89E82608B5A000325725 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		5775680B5E78E04500244FE8 /* Pods_MessageAPPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessageAPPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4BD988465AB92781858A8C /* Pods-MessageAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageAPP.release.xcconfig"; path = "Target Support Files/Pods-MessageAPP/Pods-MessageAPP.release.xcconfig"; sourceTree = "<group>"; };
 		906040A60DCB4E165E3A82DF /* Pods-MessageAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-MessageAPPTests/Pods-MessageAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 				32B6167B2605259C0072E1A2 /* Colors.swift */,
 				32B61677260525820072E1A2 /* RoundedView.swift */,
 				32B61679260525950072E1A2 /* GradientColors.swift */,
+				322BEB242608C31D00ACC7B5 /* customTextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 		3252CA222605117C00334218 /* MessageAPP */ = {
 			isa = PBXGroup;
 			children = (
+				32DB89E52608B44C00325725 /* Main */,
 				323668702606242000898564 /* Extensions */,
 				32B6168126053C1F0072E1A2 /* Models */,
 				3252CA58260515FB00334218 /* Messages */,
@@ -180,8 +188,8 @@
 		3252CA53260512D200334218 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
-				3252CA292605117C00334218 /* Main.storyboard */,
-				3252CA272605117C00334218 /* ViewController.swift */,
+				3252CA292605117C00334218 /* Chats.storyboard */,
+				32DB89E82608B5A000325725 /* ChatsViewController.swift */,
 				3252CA542605130200334218 /* ChatTableViewDelegateDataSource.swift */,
 				3252CA56260514AC00334218 /* ChatTableViewCell.swift */,
 			);
@@ -202,6 +210,15 @@
 				32B6168226053D3B0072E1A2 /* MessageModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		32DB89E52608B44C00325725 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				32DB89E62608B4BA00325725 /* Main.storyboard */,
+				3252CA272605117C00334218 /* ViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		3D868C275B7535B33E32D1B2 /* Pods */ = {
@@ -338,9 +355,10 @@
 			files = (
 				3252CA302605117E00334218 /* LaunchScreen.storyboard in Resources */,
 				3252CA2D2605117E00334218 /* Assets.xcassets in Resources */,
+				32DB89E72608B4BA00325725 /* Main.storyboard in Resources */,
 				32B616802605382A0072E1A2 /* she.jpg in Resources */,
 				32B6167F2605382A0072E1A2 /* he.jpg in Resources */,
-				3252CA2B2605117C00334218 /* Main.storyboard in Resources */,
+				3252CA2B2605117C00334218 /* Chats.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +492,9 @@
 				32B61678260525820072E1A2 /* RoundedView.swift in Sources */,
 				3252CA552605130200334218 /* ChatTableViewDelegateDataSource.swift in Sources */,
 				32B6168326053D3B0072E1A2 /* MessageModel.swift in Sources */,
+				32DB89E92608B5A000325725 /* ChatsViewController.swift in Sources */,
 				3252CA57260514AC00334218 /* ChatTableViewCell.swift in Sources */,
+				322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */,
 				3252CA242605117C00334218 /* AppDelegate.swift in Sources */,
 				3252CA262605117C00334218 /* SceneDelegate.swift in Sources */,
 				32B6167A260525950072E1A2 /* GradientColors.swift in Sources */,
@@ -513,12 +533,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3252CA292605117C00334218 /* Main.storyboard */ = {
+		3252CA292605117C00334218 /* Chats.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3252CA2A2605117C00334218 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Chats.storyboard;
 			sourceTree = "<group>";
 		};
 		3252CA2E2605117E00334218 /* LaunchScreen.storyboard */ = {

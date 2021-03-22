@@ -4,19 +4,23 @@ PODS:
   - InputBarAccessoryView/Core (5.3.0)
   - MessageKit (3.5.1):
     - InputBarAccessoryView (~> 5.3.0)
+  - SkyFloatingLabelTextField (3.8.0)
 
 DEPENDENCIES:
   - MessageKit
+  - SkyFloatingLabelTextField (~> 3.0)
 
 SPEC REPOS:
   trunk:
     - InputBarAccessoryView
     - MessageKit
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   InputBarAccessoryView: 1638fc3336698eaead9cd83ff2da6c6218fcb6bc
   MessageKit: 6a15a240a9a4767279de542a8fae861e83d8aedc
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 14b2970a15a18db3093ad900895695688352543c
+PODFILE CHECKSUM: 4f3bfceeeb4e373ca4983abb512500165ed675e8
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
