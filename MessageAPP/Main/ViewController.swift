@@ -9,8 +9,11 @@
 import UIKit
 import SkyFloatingLabelTextField
 import FirebaseAuth
-class ViewController: UIViewController {
 
+
+class ViewController: UIViewController {
+  
+    
     @IBOutlet weak var buttomView: RoundedView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var detailView: UIView!
@@ -21,10 +24,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let uid = Auth.auth().currentUser?.uid {
+            GoToFeed()
+        }
     }
     
     func setupUI(){
@@ -56,8 +67,7 @@ class ViewController: UIViewController {
         buttomView.backgroundColor = otherColor.gradient.second
         
         buttomView.layer.insertSublayer(gradientButton, below: buttomView.layer.sublayers?.last)
-        
-        //setGradientToLabel(gradientLayer: gradientLayer)
+
     }
     
     func setGradientToLabel(gradientLayer: CAGradientLayer){
@@ -79,6 +89,13 @@ class ViewController: UIViewController {
         })
     }
     
+    func GoToFeed(){
+        if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabBarViewController {
+           vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+         }
+    }
+    
     func gradientColor(bounds: CGRect, gradientLayer : CAGradientLayer) -> UIColor? {
         UIGraphicsBeginImageContext(gradientLayer.bounds.size)
         gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
@@ -90,10 +107,7 @@ class ViewController: UIViewController {
     @IBAction func loginButton(_ sender: Any) {
         doLogin(completionHandler: { success, _ in
             if success {
-                if let vc = UIStoryboard(name: "Chats", bundle: nil).instantiateInitialViewController() as? ChatsViewController {
-                           vc.modalPresentationStyle = .fullScreen
-                           self.present(vc, animated: true, completion: nil)
-                }
+                self.GoToFeed()
             }
         })
        

@@ -21,6 +21,9 @@
 		3252CA5A2605161800334218 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA592605161800334218 /* MessageViewController.swift */; };
 		3253A2D7260A4B8E00512011 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3253A2D6260A4B8D00512011 /* GoogleService-Info.plist */; };
 		3253A2D9260A4DD300512011 /* RegisterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2D8260A4DD300512011 /* RegisterViewControllerDelegate.swift */; };
+		3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DA260A6F8900512011 /* BATabBarController.swift */; };
+		3253A2DE260A72FA00512011 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DD260A72FA00512011 /* TabBarViewController.swift */; };
+		3253A2E0260A731300512011 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3253A2DF260A731300512011 /* TabBar.storyboard */; };
 		32B61678260525820072E1A2 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B61677260525820072E1A2 /* RoundedView.swift */; };
 		32B6167A260525950072E1A2 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B61679260525950072E1A2 /* GradientColors.swift */; };
 		32B6167C2605259C0072E1A2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6167B2605259C0072E1A2 /* Colors.swift */; };
@@ -76,6 +79,9 @@
 		3252CA592605161800334218 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		3253A2D6260A4B8D00512011 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3253A2D8260A4DD300512011 /* RegisterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerDelegate.swift; sourceTree = "<group>"; };
+		3253A2DA260A6F8900512011 /* BATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BATabBarController.swift; sourceTree = "<group>"; };
+		3253A2DD260A72FA00512011 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		3253A2DF260A731300512011 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		32B61677260525820072E1A2 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		32B61679260525950072E1A2 /* GradientColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		32B6167B2605259C0072E1A2 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 		3252CA222605117C00334218 /* MessageAPP */ = {
 			isa = PBXGroup;
 			children = (
+				3253A2DC260A72D500512011 /* TabBar */,
 				32D61698260A073600F9B563 /* Register */,
 				32DB89E52608B44C00325725 /* Main */,
 				323668702606242000898564 /* Extensions */,
@@ -173,6 +180,7 @@
 				32B6167D260538290072E1A2 /* he.jpg */,
 				3252CA2E2605117E00334218 /* LaunchScreen.storyboard */,
 				3252CA312605117E00334218 /* Info.plist */,
+				3253A2DA260A6F8900512011 /* BATabBarController.swift */,
 			);
 			path = MessageAPP;
 			sourceTree = "<group>";
@@ -212,6 +220,15 @@
 				3252CA592605161800334218 /* MessageViewController.swift */,
 			);
 			path = Messages;
+			sourceTree = "<group>";
+		};
+		3253A2DC260A72D500512011 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3253A2DD260A72FA00512011 /* TabBarViewController.swift */,
+				3253A2DF260A731300512011 /* TabBar.storyboard */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		32B6168126053C1F0072E1A2 /* Models */ = {
@@ -374,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3252CA302605117E00334218 /* LaunchScreen.storyboard in Resources */,
+				3253A2E0260A731300512011 /* TabBar.storyboard in Resources */,
 				3252CA2D2605117E00334218 /* Assets.xcassets in Resources */,
 				3253A2D7260A4B8E00512011 /* GoogleService-Info.plist in Resources */,
 				32D6169A260A075100F9B563 /* Register.storyboard in Resources */,
@@ -508,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3253A2DE260A72FA00512011 /* TabBarViewController.swift in Sources */,
 				3252CA5A2605161800334218 /* MessageViewController.swift in Sources */,
 				32B6167C2605259C0072E1A2 /* Colors.swift in Sources */,
 				3252CA282605117C00334218 /* ViewController.swift in Sources */,
@@ -520,6 +539,7 @@
 				322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */,
 				3252CA242605117C00334218 /* AppDelegate.swift in Sources */,
 				32D6169C260A076200F9B563 /* RegisterViewController.swift in Sources */,
+				3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */,
 				3252CA262605117C00334218 /* SceneDelegate.swift in Sources */,
 				32B6167A260525950072E1A2 /* GradientColors.swift in Sources */,
 			);

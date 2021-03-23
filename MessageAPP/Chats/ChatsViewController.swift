@@ -14,7 +14,7 @@ class ChatsViewController: UIViewController {
         @IBOutlet weak var topView: UIView!
         var controller: ChatTableViewDelegateDataSource?
         @IBOutlet weak var messageTableView: UITableView!
-       var messagesArray = [User]()
+        var messagesArray = [User]()
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -25,7 +25,7 @@ class ChatsViewController: UIViewController {
             messageTableView.dataSource = controller
             
             setMessages()
-              setupUI()
+            setupUI()
         }
         
         func setupUI(){

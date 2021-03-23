@@ -141,6 +141,7 @@
                                                         <constraint firstAttribute="height" constant="46" id="SS9-OD-tgn"/>
                                                     </constraints>
                                                     <color key="tintColor" name="outgoingMessageBackground"/>
+                                                    <state key="normal" image="power" catalog="system"/>
                                                     <connections>
                                                         <action selector="checkBoxButton:" destination="Yhp-qK-x0j" eventType="touchUpInside" id="uZi-II-RrO"/>
                                                     </connections>
@@ -267,6 +268,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="power" catalog="system" width="128" height="124"/>
         <namedColor name="outgoingMessageBackground">
             <color red="0.20399999618530273" green="0.77999997138977051" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
