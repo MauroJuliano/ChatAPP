@@ -8,6 +8,11 @@ target 'MessageAPP' do
   # Pods for MessageAPP
   pod 'MessageKit'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'Firebase'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'BATabBarController', '~> 2.0.0'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing
