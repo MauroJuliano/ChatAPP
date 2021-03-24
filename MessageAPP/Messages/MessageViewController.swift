@@ -9,6 +9,9 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
+import FirebaseFirestore
+import FirebaseAuth
+
 struct Sender: SenderType {
     var senderId: String
     var displayName: String
@@ -22,15 +25,21 @@ struct Message: MessageType {
 }
 
 
-class MessageViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate{
+class MessageViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate{
     
     var userSelected: User?
     let currentUser = Sender(senderId: "self", displayName: "Rhyssand")
     var otherUser = Sender(senderId: "other", displayName: "Freyre")
-    var messages = [MessageType]()
+    var messages: [Message] = []
     
     var currentUserMessageStyle: MessageStyle?
     var otherUserMessageStyle: MessageStyle?
+    
+    private let db = Firestore.firestore()
+    private var reference: CollectionReference?
+    var ref: DocumentReference? = nil
+    
+    let uid = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +49,6 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         navigationController?.navigationBar.tintColor = .black
         updateMessageStyle()
         self.navigationController?.navigationBar.isHidden = false
-        
         messages.append(Message(sender: currentUser,
                                 messageId: "1",
                                 sentDate: Date().addingTimeInterval(-86400),
@@ -83,7 +91,10 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         configureMessageInputBar()
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     private func configureMessageInputBar(){
          guard let otherColor = GradientColors(rawValue: "aubergine") else {return}
          let gradientLayer = CAGradientLayer()
@@ -121,7 +132,6 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         
         guard let currentColor = GradientColors(rawValue: "pinky") else {return}
         guard let otherColor = GradientColors(rawValue: "aubergine") else {return}
-        //messageInputBar.sendButton.backgroundColor = currentColor.gradient.first
       
         currentUserMessageStyle = MessageStyle.custom({ (containerView) in
             let gradientLayer = CAGradientLayer()
@@ -144,6 +154,37 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
                    containerView.layer.insertSublayer(gradientLayer, below: containerView.layer.sublayers?.last)
                    containerView.roundCorners([.bottomRight, .topLeft, .topRight], radius: 15)
        })
+    }
+}
+
+extension MessageViewController: InputBarAccessoryViewDelegate{
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        
+        let testMessage = Message(sender: currentUser,
+                                  messageId: "7",
+                                  sentDate: NSDate(timeIntervalSinceNow: -2) as Date,
+                                  kind: .text(text))
+        
+        insertNewMessage(testMessage)
+        save(testMessage)
+        inputBar.inputTextView.text = ""
+    }
+    
+    private func insertNewMessage(_ message: Message){
+        guard !messages.contains(where: {$0.messageId == message.messageId}) else {return}
+        messages.append(message)
+        
+        messagesCollectionView.reloadData()
+        messagesCollectionView.scrollToBottom(animated: true)
+    }
+    
+    private func save(_ message: Message){
+        ref = db.collection("channels").addDocument(data: [
+                                       "created": message.sentDate,
+                                       "senderID": uid,
+                                       "senderName": "teste"])
+        
+        messagesCollectionView.scrollToBottom()
     }
 }
 

@@ -28,7 +28,13 @@ class ChatsViewController: UIViewController {
             setupUI()
         }
         
-        func setupUI(){
+    @IBAction func adicionarbutton(_ sender: Any) {
+        if let vc = UIStoryboard(name: "Friends", bundle: nil).instantiateViewController(withIdentifier: "FriendsNavigationController") as? UINavigationController {
+        present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func setupUI(){
             guard let otherColor = GradientColors(rawValue: "shroomhaze") else {return}
             let gradientLayer: CAGradientLayer = CAGradientLayer()
             

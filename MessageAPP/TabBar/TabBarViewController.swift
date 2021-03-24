@@ -61,15 +61,15 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
         
     guard let vc4 = UIStoryboard(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController") as? UINavigationController else {return}
         
-
-       let vc2 = UIViewController()
+    guard let vc2 = UIStoryboard(name: "Friends", bundle: nil).instantiateViewController(withIdentifier: "FriendsNavigationController") as? UINavigationController else {return}
+       // let vc2 = UIViewController()
        vc2.view.backgroundColor = .green
        let vc3 = UIViewController()
        vc3.view.backgroundColor = .red
         
         tabController.delegate = self
-        tabController.viewControllers = [vc4,vc2,vc3]
-        tabController.tabBarItems = [tabBarItem,tabBarItem2,tabBarItem3]
+        tabController.viewControllers = [vc4,vc3]
+        tabController.tabBarItems = [tabBarItem,tabBarItem3]
         
         self.view.addSubview(tabController.view)
     }

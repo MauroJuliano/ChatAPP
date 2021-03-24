@@ -13,6 +13,9 @@ target 'MessageAPP' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'BATabBarController', '~> 2.0.0'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
+  pod 'JJFloatingActionButton'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing

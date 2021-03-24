@@ -24,6 +24,14 @@
 		3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DA260A6F8900512011 /* BATabBarController.swift */; };
 		3253A2DE260A72FA00512011 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DD260A72FA00512011 /* TabBarViewController.swift */; };
 		3253A2E0260A731300512011 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3253A2DF260A731300512011 /* TabBar.storyboard */; };
+		32A57467260B6D19000079EA /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A57466260B6D19000079EA /* FriendsViewController.swift */; };
+		32A57469260B6D6C000079EA /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A57468260B6D6C000079EA /* Friends.storyboard */; };
+		32A5746B260B6D88000079EA /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5746A260B6D88000079EA /* FriendsTableViewCell.swift */; };
+		32A5746D260B7CC2000079EA /* FriendsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5746C260B7CC2000079EA /* FriendsViewControllerDelegate.swift */; };
+		32A57470260B80A9000079EA /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5746F260B80A9000079EA /* NewFriendViewController.swift */; };
+		32A57472260B80BB000079EA /* NewFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A57471260B80BB000079EA /* NewFriend.storyboard */; };
+		32A57474260B8B4F000079EA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A57473260B8B4F000079EA /* Users.swift */; };
+		32A57476260BABB6000079EA /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A57475260BABB6000079EA /* UserRequest.swift */; };
 		32B61678260525820072E1A2 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B61677260525820072E1A2 /* RoundedView.swift */; };
 		32B6167A260525950072E1A2 /* GradientColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B61679260525950072E1A2 /* GradientColors.swift */; };
 		32B6167C2605259C0072E1A2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6167B2605259C0072E1A2 /* Colors.swift */; };
@@ -82,6 +90,14 @@
 		3253A2DA260A6F8900512011 /* BATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BATabBarController.swift; sourceTree = "<group>"; };
 		3253A2DD260A72FA00512011 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3253A2DF260A731300512011 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		32A57466260B6D19000079EA /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		32A57468260B6D6C000079EA /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		32A5746A260B6D88000079EA /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		32A5746C260B7CC2000079EA /* FriendsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		32A5746F260B80A9000079EA /* NewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendViewController.swift; sourceTree = "<group>"; };
+		32A57471260B80BB000079EA /* NewFriend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewFriend.storyboard; sourceTree = "<group>"; };
+		32A57473260B8B4F000079EA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		32A57475260BABB6000079EA /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		32B61677260525820072E1A2 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		32B61679260525950072E1A2 /* GradientColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientColors.swift; sourceTree = "<group>"; };
 		32B6167B2605259C0072E1A2 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -165,6 +181,8 @@
 		3252CA222605117C00334218 /* MessageAPP */ = {
 			isa = PBXGroup;
 			children = (
+				32A5746E260B806E000079EA /* NewFriends */,
+				32A57465260B6CBD000079EA /* Friends */,
 				3253A2DC260A72D500512011 /* TabBar */,
 				32D61698260A073600F9B563 /* Register */,
 				32DB89E52608B44C00325725 /* Main */,
@@ -231,10 +249,32 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		32A57465260B6CBD000079EA /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				32A57466260B6D19000079EA /* FriendsViewController.swift */,
+				32A5746A260B6D88000079EA /* FriendsTableViewCell.swift */,
+				32A57468260B6D6C000079EA /* Friends.storyboard */,
+				32A5746C260B7CC2000079EA /* FriendsViewControllerDelegate.swift */,
+				32A57475260BABB6000079EA /* UserRequest.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		32A5746E260B806E000079EA /* NewFriends */ = {
+			isa = PBXGroup;
+			children = (
+				32A5746F260B80A9000079EA /* NewFriendViewController.swift */,
+				32A57471260B80BB000079EA /* NewFriend.storyboard */,
+			);
+			path = NewFriends;
+			sourceTree = "<group>";
+		};
 		32B6168126053C1F0072E1A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				32B6168226053D3B0072E1A2 /* MessageModel.swift */,
+				32A57473260B8B4F000079EA /* Users.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -391,11 +431,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3252CA302605117E00334218 /* LaunchScreen.storyboard in Resources */,
+				32A57472260B80BB000079EA /* NewFriend.storyboard in Resources */,
 				3253A2E0260A731300512011 /* TabBar.storyboard in Resources */,
 				3252CA2D2605117E00334218 /* Assets.xcassets in Resources */,
 				3253A2D7260A4B8E00512011 /* GoogleService-Info.plist in Resources */,
 				32D6169A260A075100F9B563 /* Register.storyboard in Resources */,
 				32DB89E72608B4BA00325725 /* Main.storyboard in Resources */,
+				32A57469260B6D6C000079EA /* Friends.storyboard in Resources */,
 				32B616802605382A0072E1A2 /* she.jpg in Resources */,
 				32B6167F2605382A0072E1A2 /* he.jpg in Resources */,
 				3252CA2B2605117C00334218 /* Chats.storyboard in Resources */,
@@ -528,14 +570,20 @@
 			files = (
 				3253A2DE260A72FA00512011 /* TabBarViewController.swift in Sources */,
 				3252CA5A2605161800334218 /* MessageViewController.swift in Sources */,
+				32A57476260BABB6000079EA /* UserRequest.swift in Sources */,
 				32B6167C2605259C0072E1A2 /* Colors.swift in Sources */,
 				3252CA282605117C00334218 /* ViewController.swift in Sources */,
+				32A57467260B6D19000079EA /* FriendsViewController.swift in Sources */,
 				32B61678260525820072E1A2 /* RoundedView.swift in Sources */,
 				3252CA552605130200334218 /* ChatTableViewDelegateDataSource.swift in Sources */,
 				32B6168326053D3B0072E1A2 /* MessageModel.swift in Sources */,
+				32A5746D260B7CC2000079EA /* FriendsViewControllerDelegate.swift in Sources */,
 				3253A2D9260A4DD300512011 /* RegisterViewControllerDelegate.swift in Sources */,
+				32A5746B260B6D88000079EA /* FriendsTableViewCell.swift in Sources */,
 				32DB89E92608B5A000325725 /* ChatsViewController.swift in Sources */,
 				3252CA57260514AC00334218 /* ChatTableViewCell.swift in Sources */,
+				32A57474260B8B4F000079EA /* Users.swift in Sources */,
+				32A57470260B80A9000079EA /* NewFriendViewController.swift in Sources */,
 				322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */,
 				3252CA242605117C00334218 /* AppDelegate.swift in Sources */,
 				32D6169C260A076200F9B563 /* RegisterViewController.swift in Sources */,
