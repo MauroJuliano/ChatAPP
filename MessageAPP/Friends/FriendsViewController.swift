@@ -14,35 +14,54 @@ import FirebaseAuth
 class FriendsViewController: UIViewController {
 
     @IBOutlet weak var friendsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
+    @IBOutlet weak var loadingView: UIView!
     var controller: FriendsViewControllerDelegate?
-    private var userRequest: UserRequest?
+    private var userRequest = UserRequest()
     
     private let db = Firestore.firestore()
     private var reference: CollectionReference?
     private var ref: DocumentReference? = nil
     private let uid = Auth.auth().currentUser?.uid
     private let databaseReference: DatabaseReference = Database.database().reference()
+    var friendsArray: [Friends] = []
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        userRequest = UserRequest()
+        activityIndicator.startAnimating()
         controller = FriendsViewControllerDelegate(view: self)
+        
         friendsTableView.delegate = controller
         friendsTableView.dataSource = controller
         
         floatingSetup()
+        getDataFromStorage()
+
         // Do any additional setup after loading the view.
+    }
+    func getDataFromStorage(){
+        userRequest.getUsers(completionHandler: { success, _ in
+            if success {
+                self.userRequest.getContato(completionHandler: { success , _ in
+                    if success {
+                        self.friendsArray = self.userRequest.friends
+                        self.loadingView.isHidden = true
+                        self.friendsTableView.reloadData()
+                    }
+                })
+            }
+        })
     }
     
     private func floatingSetup(){
         let actionButton = JJFloatingActionButton()
         
         actionButton.addItem(title: "New Group",image: UIImage(systemName: "person.3.fill")?.withRenderingMode(.alwaysOriginal)) { item in
-            try! Auth.auth().signOut()
-            //self.addNewContact(title: "New Group", content: "Enter name of this group")
+            self.addNewContact(title: "New Group", content: "Enter name of this group")
         }
         
         actionButton.addItem(title: "New Contact",image: UIImage(systemName: "person.fill")?.withRenderingMode(.alwaysOriginal)) { item in
@@ -82,26 +101,22 @@ class FriendsViewController: UIViewController {
     }
     
     func save(emailRequest: String){
+        userRequest.emailRequest = emailRequest
         
-        userRequest?.getUsers(completionHandler: {name, email, userID in
-            if emailRequest == email {
-                print("teste retorno")
-               self.saveTo(userID: userID)
-                //create a new channel
+        for itens in userRequest.users {
+            if emailRequest == itens.email {
+                self.saveTo(userID: itens.userID)
             }
-        })
+        }
     }
     
     func saveTo(userID: String){
-        print(userID)
-        
             //create a new channel
-            let messageId = self.databaseReference.childByAutoId()
-
+        let messageId = self.databaseReference.childByAutoId().key!
 
             //create contacts
             let dict: [String: Any] = [
-                "userID": "\(self.uid)",
+                "userID": "\(self.uid!)",
                 "chatID": "\(messageId)"
             ]
 
@@ -109,17 +124,19 @@ class FriendsViewController: UIViewController {
                 "userID": userID,
                 "chatID": "\(messageId)"
             ]
-        let channels = db.collection("channels").document("\(messageId)").collection("thread")
-        channels.addDocument(data: dict)
         
-//            self.ref = self.db.collection("channels").addDocument(data: [
-//                "userID": userID,
-//                 "chatID": "\(messageId)"
-//            ])
-//            self.databaseReference.child("users").child(userID).child("contatos").child(self.uid!).updateChildValues(dict)
-//            self.databaseReference.child("users").child(self.uid!).child("contatos").child(userID).updateChildValues(currentDict)
+        let channels = db.collection("channels").document("\(messageId)").collection("whoIS")
+        channels.addDocument(data: [
+            "chatID": "\(messageId)",
+            "user1": "\(self.uid!)",
+            "user2": "\(userID)"])
 
-        self.dismiss(animated: true, completion: nil)
-        return
+        let othertUser = db.collection("users").document(userID).collection("contatos").document(self.uid!)
+        othertUser.setData(dict)
+        
+        let currenttUser = db.collection("users").document(self.uid!).collection("contatos").document(userID)
+        currenttUser.setData(currentDict)
+        
+        getDataFromStorage()
         }
 }

@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FriendsTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,11 @@ class FriendsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func setup(friend: Friends){
+        nameLabel.text = friend.name
+        captionLabel.text = "Too weird to live, too rare to die."
+        let url = URL(string: friend.image)
+        profileImage.kf.setImage(with: url)
+    }
 }

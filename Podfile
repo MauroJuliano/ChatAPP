@@ -16,6 +16,7 @@ target 'MessageAPP' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'JJFloatingActionButton'
+  pod 'Kingfisher', '~> 5.0'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing
