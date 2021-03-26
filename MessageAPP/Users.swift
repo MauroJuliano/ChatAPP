@@ -13,12 +13,14 @@ struct Users: Decodable, Equatable {
     let email: String
     let name: String
     let image: String
+    let bio: String
     
     enum CodingKeys: String, CodingKey {
         case userID = "userID"
         case name = "name"
         case email = "email"
         case image = "image"
+        case bio = "Bio"
     }
 }
 
@@ -41,7 +43,9 @@ struct Friends: Decodable, Equatable {
     var name: String
     var image: String
     var chatID: String
-    
+    var bio: String
+    var timeStamp: String
+    var lastMessage: String
     enum CodingKeys: String, CodingKey {
         
         case userID = "userID"
@@ -49,6 +53,9 @@ struct Friends: Decodable, Equatable {
         case name = "name"
         case image = "image"
         case chatID = "chatID"
+        case bio = "bio"
+        case timeStamp = "timeStamp"
+        case lastMessage = "lastMessage"
         
     }
 }

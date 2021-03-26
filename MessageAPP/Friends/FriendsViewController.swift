@@ -61,7 +61,10 @@ class FriendsViewController: UIViewController {
         let actionButton = JJFloatingActionButton()
         
         actionButton.addItem(title: "New Group",image: UIImage(systemName: "person.3.fill")?.withRenderingMode(.alwaysOriginal)) { item in
-            self.addNewContact(title: "New Group", content: "Enter name of this group")
+//            self.userRequest.getActiveChats(completionHandler: { success, _ in
+//
+//            })
+           self.addNewContact(title: "New Group", content: "Enter name of this group")
         }
         
         actionButton.addItem(title: "New Contact",image: UIImage(systemName: "person.fill")?.withRenderingMode(.alwaysOriginal)) { item in
@@ -111,31 +114,12 @@ class FriendsViewController: UIViewController {
     }
     
     func saveTo(userID: String){
-            //create a new channel
-        let messageId = self.databaseReference.childByAutoId().key!
-
-            //create contacts
-            let dict: [String: Any] = [
-                "userID": "\(self.uid!)",
-                "chatID": "\(messageId)"
-            ]
-
-            let currentDict: [String: Any] = [
-                "userID": userID,
-                "chatID": "\(messageId)"
-            ]
-        
-        let channels = db.collection("channels").document("\(messageId)").collection("whoIS")
-        channels.addDocument(data: [
-            "chatID": "\(messageId)",
-            "user1": "\(self.uid!)",
-            "user2": "\(userID)"])
-
+            //create a new friend
         let othertUser = db.collection("users").document(userID).collection("contatos").document(self.uid!)
-        othertUser.setData(dict)
+        othertUser.setData(["userID": "\(self.uid!)"])
         
         let currenttUser = db.collection("users").document(self.uid!).collection("contatos").document(userID)
-        currenttUser.setData(currentDict)
+        currenttUser.setData(["userID": userID])
         
         getDataFromStorage()
         }

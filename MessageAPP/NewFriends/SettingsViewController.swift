@@ -13,8 +13,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var settingsTableView: UITableView!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var borderView: RoundedView!
+    private var userRequest = UserRequest()
     private var controller: SettingsViewControllerDelegate?
+    let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +29,30 @@ class SettingsViewController: UIViewController {
         settingsTableView.dataSource = controller
         
         setupUI()
+        getUser()
         
 
         // Do any additional setup after loading the view.
+    }
+    func getUser(){
+        userRequest.getUsers(completionHandler: { success, _ in
+            if success {
+                for itens in self.userRequest.users {
+                    if self.uid == itens.userID {
+                        self.setupUser(url: itens.image, name: itens.name, email: itens.email)
+                        
+                    }
+                }
+            }
+        })
+    }
+    
+    func setupUser(url: String, name: String, email: String){
+        let url = URL(string: url)
+        profileImage.kf.setImage(with: url)
+        
+        nameLabel.text = name
+        emailLabel.text = email
     }
     
     func setupUI(){
@@ -43,8 +68,8 @@ class SettingsViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, below: self.view.layer.sublayers?.last)
         borderView.backgroundColor = otherColor.gradient.first
         
-        let url = URL(string: "https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill%2Cd_placeholder_thescene.jpg%2Cfl_progressive%2Cg_center%2Ch_360%2Cq_80%2Cw_640/v1524267747/glamour_celebrities-answer-what-was-the-lowest-amount-in-your-bank-account.jpg")
-        profileImage.kf.setImage(with: url)
+//        let url = URL(string: "https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill%2Cd_placeholder_thescene.jpg%2Cfl_progressive%2Cg_center%2Ch_360%2Cq_80%2Cw_640/v1524267747/glamour_celebrities-answer-what-was-the-lowest-amount-in-your-bank-account.jpg")
+//        profileImage.kf.setImage(with: url)
         
         }
         

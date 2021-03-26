@@ -56,7 +56,6 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
         tabBarItem2.tintColor = otherColor.gradient.second
         tabBarItem3.tintColor = otherColor.gradient.second
         
-        
         //inicialize controllers
         
     guard let vc4 = UIStoryboard(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController") as? UINavigationController else {return}
@@ -69,7 +68,7 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
         tabController.delegate = self
         tabController.viewControllers = [vc4,vc2]
         tabController.tabBarItems = [tabBarItem,tabBarItem3]
-        
+        tabController.initialViewController = vc4
         self.view.addSubview(tabController.view)
     }
         // Do any additional setup after loading the view.

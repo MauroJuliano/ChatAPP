@@ -20,17 +20,14 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return view?.messagesArray.count ?? 0
-       // return usuarioArray.count
+        return view?.chatArray.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatTableViewCell
-        if let indexpath = view?.messagesArray[indexPath.row]{
+        if let indexpath = view?.chatArray[indexPath.row]{
              cell.setup(user: indexpath)
         }
-       
-//        cell.usuarioLabel.text = usuarioArray[indexPath.row]
         return cell
     }
     
@@ -39,8 +36,8 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
         
         let vc = MessageViewController()
         vc.title = "Chat"
-         if let indexpath = view?.messagesArray[indexPath.row]{
-            vc.userSelected = indexpath
+        if let indexpath = view?.chatArray[indexPath.row]{
+            vc.chatIdSelected = indexpath
         }
         view?.navigationController?.pushViewController(vc, animated: true)
         //show messages

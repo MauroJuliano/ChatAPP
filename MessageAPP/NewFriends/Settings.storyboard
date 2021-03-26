@@ -24,14 +24,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJe-2y-z1y">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mauro Juliano" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22G-T4-gAG">
-                                                    <rect key="frame" x="133" y="247" width="148" height="27.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mauro Juliano" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22G-T4-gAG">
+                                                    <rect key="frame" x="50" y="247" width="314" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mauro@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiW-Wc-SrT">
-                                                    <rect key="frame" x="151" y="282" width="112" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mauro@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiW-Wc-SrT">
+                                                    <rect key="frame" x="50" y="282" width="314" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -96,16 +96,16 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Jh4-0m-s5J" firstAttribute="leading" secondItem="HJe-2y-z1y" secondAttribute="leading" constant="127" id="0I5-pm-KjE"/>
+                                                <constraint firstItem="NiW-Wc-SrT" firstAttribute="leading" secondItem="HJe-2y-z1y" secondAttribute="leading" constant="50" id="1Sf-rv-Pvt"/>
                                                 <constraint firstAttribute="trailing" secondItem="Jh4-0m-s5J" secondAttribute="trailing" constant="127" id="6Za-F0-0j7"/>
-                                                <constraint firstItem="22G-T4-gAG" firstAttribute="top" secondItem="Jh4-0m-s5J" secondAttribute="bottom" constant="8" id="7i5-Mj-Nch"/>
-                                                <constraint firstAttribute="trailing" secondItem="22G-T4-gAG" secondAttribute="trailing" constant="133" id="Bfm-mD-cYf"/>
-                                                <constraint firstItem="NiW-Wc-SrT" firstAttribute="leading" secondItem="HJe-2y-z1y" secondAttribute="leading" constant="151" id="KRs-rk-elA"/>
-                                                <constraint firstAttribute="trailing" secondItem="NiW-Wc-SrT" secondAttribute="trailing" constant="151" id="PQe-hX-PMJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="NiW-Wc-SrT" secondAttribute="bottom" constant="52" id="a34-fZ-UGI"/>
+                                                <constraint firstItem="22G-T4-gAG" firstAttribute="leading" secondItem="HJe-2y-z1y" secondAttribute="leading" constant="50" id="7z4-HR-8wo"/>
+                                                <constraint firstAttribute="trailing" secondItem="NiW-Wc-SrT" secondAttribute="trailing" constant="50" id="XID-Wy-EVF"/>
                                                 <constraint firstItem="Jh4-0m-s5J" firstAttribute="top" secondItem="HJe-2y-z1y" secondAttribute="top" constant="59" id="eUv-Eu-ugp"/>
                                                 <constraint firstAttribute="height" constant="350" id="gts-3u-e0U"/>
-                                                <constraint firstItem="22G-T4-gAG" firstAttribute="leading" secondItem="HJe-2y-z1y" secondAttribute="leading" constant="133" id="khY-Xk-Ok8"/>
-                                                <constraint firstItem="NiW-Wc-SrT" firstAttribute="top" secondItem="22G-T4-gAG" secondAttribute="bottom" constant="7.5" id="xsl-R9-TUI"/>
+                                                <constraint firstItem="22G-T4-gAG" firstAttribute="top" secondItem="Jh4-0m-s5J" secondAttribute="bottom" constant="8" id="i7Y-V3-wbE"/>
+                                                <constraint firstItem="NiW-Wc-SrT" firstAttribute="top" secondItem="22G-T4-gAG" secondAttribute="bottom" constant="7.5" id="jAs-SR-cxs"/>
+                                                <constraint firstAttribute="trailing" secondItem="22G-T4-gAG" secondAttribute="trailing" constant="50" id="kzU-09-HJW"/>
+                                                <constraint firstAttribute="bottom" secondItem="NiW-Wc-SrT" secondAttribute="bottom" constant="52" id="oHy-k6-7sD"/>
                                             </constraints>
                                         </view>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Af-vn-rHs">
@@ -220,6 +220,8 @@
                     <navigationItem key="navigationItem" id="rew-Rk-ZZ1"/>
                     <connections>
                         <outlet property="borderView" destination="Jh4-0m-s5J" id="5o5-4g-tGB"/>
+                        <outlet property="emailLabel" destination="NiW-Wc-SrT" id="hPQ-T8-yFb"/>
+                        <outlet property="nameLabel" destination="22G-T4-gAG" id="yxn-QB-kZ1"/>
                         <outlet property="profileImage" destination="XIx-uz-xLD" id="IOG-Yv-kO7"/>
                         <outlet property="settingsTableView" destination="0Af-vn-rHs" id="CC0-IB-Ka8"/>
                     </connections>

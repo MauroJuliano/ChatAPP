@@ -24,15 +24,20 @@ class FriendsViewControllerDelegate: NSObject, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let messageId = self.databaseReference.childByAutoId().key!
-        let index = view?.friendsArray[indexPath.row]
+        guard let index = view?.friendsArray[indexPath.row] else {return}
         
         let channels = db.collection("channels").document("\(messageId)").collection("whoIS")
         
         channels.addDocument(data: [
             "chatID": "\(messageId)",
             "user1": "\(self.uid!)",
-            "user2": "\(index!.userID)"])
+            "user2": "\(index.userID)"])
         
+        let othertUser = db.collection("users").document(index.userID).collection("contatos").document(self.uid!)
+        othertUser.updateData(["chatID": "\(messageId)"])
+        
+        let currenttUser = db.collection("users").document(self.uid!).collection("contatos").document(index.userID)
+        currenttUser.updateData(["chatID": "\(messageId)"])
         
        }
     

@@ -27,7 +27,7 @@ class FriendsTableViewCell: UITableViewCell {
     
     func setup(friend: Friends){
         nameLabel.text = friend.name
-        captionLabel.text = "Too weird to live, too rare to die."
+        captionLabel.text = friend.bio
         let url = URL(string: friend.image)
         profileImage.kf.setImage(with: url)
     }

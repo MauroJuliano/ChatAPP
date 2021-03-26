@@ -11,7 +11,7 @@ import MessageKit
 import InputBarAccessoryView
 import FirebaseFirestore
 import FirebaseAuth
-
+import Kingfisher
 struct Sender: SenderType {
     var senderId: String
     var displayName: String
@@ -27,11 +27,11 @@ struct Message: MessageType {
 
 class MessageViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate{
     
+    var timer: Timer?
     var userSelected: User?
-    let currentUser = Sender(senderId: "self", displayName: "Rhyssand")
-    var otherUser = Sender(senderId: "other", displayName: "Freyre")
+    var userRequest = UserRequest()
     var messages: [Message] = []
-    
+    var chatIdSelected: Friends?
     var currentUserMessageStyle: MessageStyle?
     var otherUserMessageStyle: MessageStyle?
     
@@ -40,44 +40,23 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     var ref: DocumentReference? = nil
     
     let uid = Auth.auth().currentUser?.uid
-
+    var image = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let user = userSelected else {return}
-        otherUser = Sender(senderId: "other", displayName: user.name ?? "")
+        userRequest.getUsers(completionHandler: { success, _ in
+            if success {
+                
+                for itens in self.userRequest.users {
+                    if itens.userID == self.uid {
+                        self.image = itens.image
+                   
+                    }
+                }
+            }
+        })
         navigationController?.navigationBar.tintColor = .black
         updateMessageStyle()
         self.navigationController?.navigationBar.isHidden = false
-        messages.append(Message(sender: currentUser,
-                                messageId: "1",
-                                sentDate: Date().addingTimeInterval(-86400),
-                                kind: .text("hello world")))
-       
-        messages.append(Message(sender: otherUser,
-                                       messageId: "2",
-                                       sentDate: Date().addingTimeInterval(-70000),
-                                       kind: .text("how is it going")))
-        
-        messages.append(Message(sender: currentUser,
-                                       messageId: "3",
-                                       sentDate: Date().addingTimeInterval(-60000),
-                                       kind: .text("here is a long reply. here is a long reply. here is a long reply. here is a long reply. here is a long reply. here is a long reply. ")))
-        
-        messages.append(Message(sender: currentUser,
-                                       messageId: "4",
-                                       sentDate: Date().addingTimeInterval(-50000),
-                                       kind: .text("look it works")))
-        
-        messages.append(Message(sender: otherUser,
-                                       messageId: "5",
-                                       sentDate: Date().addingTimeInterval(-40000),
-                                       kind: .text("I love making apps. I love making apps. I love making apps. I love making apps. I love making apps. I love making apps. ")))
-        
-        messages.append(Message(sender: currentUser,
-                                       messageId: "6",
-                                       sentDate: Date().addingTimeInterval(-30000),
-                                       kind: .text("the last message")))
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -87,14 +66,27 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         messageInputBar.sendButton.setTitleColor(placeholder, for: .disabled)
         messageInputBar.sendButton.setTitleColor(.black, for: .normal)
         
-        //messageInputBar.inputTextView.placeholderTextColor = UIColor(hexString: "A4A4A4")
+        timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector( loadAllMessages), userInfo: nil, repeats: true)
+  
+        loadAllMessages()
         configureMessageInputBar()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-
+    @objc func loadAllMessages(){
+        if let chatId = chatIdSelected?.chatID {
+            userRequest.getActiveChats(chatId: chatId, completionHandler: { success, _ in
+               if success {
+                for itens in self.userRequest.messages {
+                }
+                 self.messagesCollectionView.reloadData()
+                 self.messagesCollectionView.scrollToLastItem()
+                 }
+             })
+         }
+    }
     private func configureMessageInputBar(){
          guard let otherColor = GradientColors(rawValue: "aubergine") else {return}
          let gradientLayer = CAGradientLayer()
@@ -113,16 +105,16 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     }
 
     func currentSender() -> SenderType {
-        return currentUser
+        return userRequest.currentUser
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         
-        return messages[indexPath.section]
+        return userRequest.messages[indexPath.section]
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return messages.count
+        return userRequest.messages.count
     }
     func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return .zero
@@ -132,7 +124,8 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         
         guard let currentColor = GradientColors(rawValue: "pinky") else {return}
         guard let otherColor = GradientColors(rawValue: "aubergine") else {return}
-      
+  
+        messagesCollectionView.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper")!)
         currentUserMessageStyle = MessageStyle.custom({ (containerView) in
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = [otherColor.gradient.first.cgColor, otherColor.gradient.second.cgColor]
@@ -143,6 +136,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
             containerView.layer.insertSublayer(gradientLayer, below: containerView.layer.sublayers?.last)
             containerView.roundCorners([.bottomLeft, .topLeft, .topRight], radius: 15)
         })
+        
         
         otherUserMessageStyle = MessageStyle.custom({ (containerView) in
                    let gradientLayer = CAGradientLayer()
@@ -155,36 +149,28 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
                    containerView.roundCorners([.bottomRight, .topLeft, .topRight], radius: 15)
        })
     }
+
 }
 
 extension MessageViewController: InputBarAccessoryViewDelegate{
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
-        let testMessage = Message(sender: currentUser,
-                                  messageId: "7",
-                                  sentDate: NSDate(timeIntervalSinceNow: -2) as Date,
-                                  kind: .text(text))
+        guard let chatInfo = chatIdSelected else { return }
+        let messageSend = db.collection("channels").document(chatInfo.chatID).collection("thread")
+         messageSend.addDocument(data: ["content" : "\(text)",
+                                        "time": -5,
+                                        "sender": uid,
+                                        "receiver": chatInfo.userID,
+                                        "timeStamp": Date().timeIntervalSince1970])
+       
+        let currenttUser = db.collection("users").document(self.uid!).collection("contatos").document(chatInfo.userID)
+        currenttUser.updateData(["lastMessage": "\(text)", "timeStamp": Date().timeIntervalSince1970])
+       
+        let othertUser = db.collection("users").document(chatInfo.userID).collection("contatos").document(self.uid!)
+        othertUser.updateData(["lastMessage": "\(text)", "timeStamp": Date().timeIntervalSince1970])
         
-        insertNewMessage(testMessage)
-        save(testMessage)
-        inputBar.inputTextView.text = ""
-    }
-    
-    private func insertNewMessage(_ message: Message){
-        guard !messages.contains(where: {$0.messageId == message.messageId}) else {return}
-        messages.append(message)
-        
-        messagesCollectionView.reloadData()
-        messagesCollectionView.scrollToBottom(animated: true)
-    }
-    
-    private func save(_ message: Message){
-        ref = db.collection("channels").addDocument(data: [
-                                       "created": message.sentDate,
-                                       "senderID": uid,
-                                       "senderName": "teste"])
-        
-        messagesCollectionView.scrollToBottom()
+         inputBar.inputTextView.text = ""
+         loadAllMessages()
     }
 }
 
@@ -192,7 +178,7 @@ extension MessageViewController: MessageCellDelegate{
 
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         
-        if message.sender.senderId == "self" {
+        if message.sender.senderId ==  userRequest.uid {
             return self.currentUserMessageStyle ?? .bubble
         }else {
             return self.otherUserMessageStyle ?? .bubble
@@ -201,11 +187,15 @@ extension MessageViewController: MessageCellDelegate{
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         
-        guard message.sender.senderId == "other" else {
-            avatarView.isHidden = true
-            return
+        guard message.sender.senderId != uid else {
+                 
+        let url = URL(string: image ?? "")
+        avatarView.kf.setImage(with: url)
+         return
         }
-        avatarView.image = UIImage(named: userSelected?.image ?? "")
+        avatarView.isHidden = false
+        let url = URL(string: chatIdSelected?.image ?? "")
+        avatarView.kf.setImage(with: url)
     }
 }
 extension UIView {
@@ -216,3 +206,4 @@ extension UIView {
         self.layer.mask = mask
     }
 }
+
