@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322BEB242608C31D00ACC7B5 /* customTextField.swift */; };
+		3233597926121CBA005A71E5 /* EditProfilerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3233597826121CBA005A71E5 /* EditProfilerViewController.swift */; };
+		3233597C26121CDF005A71E5 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3233597B26121CDF005A71E5 /* EditProfile.storyboard */; };
+		3233597E26123BD3005A71E5 /* CustomSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3233597D26123BD3005A71E5 /* CustomSearch.swift */; };
 		3252CA242605117C00334218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA232605117C00334218 /* AppDelegate.swift */; };
 		3252CA262605117C00334218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA252605117C00334218 /* SceneDelegate.swift */; };
 		3252CA282605117C00334218 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA272605117C00334218 /* ViewController.swift */; };
@@ -70,6 +73,9 @@
 		0F6C671AAB48861BB207469A /* Pods-MessageAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageAPP.debug.xcconfig"; path = "Target Support Files/Pods-MessageAPP/Pods-MessageAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		1BCA135805F40ED0E81D7539 /* Pods-MessageAPP-MessageAPPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageAPP-MessageAPPUITests.debug.xcconfig"; path = "Target Support Files/Pods-MessageAPP-MessageAPPUITests/Pods-MessageAPP-MessageAPPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		322BEB242608C31D00ACC7B5 /* customTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
+		3233597826121CBA005A71E5 /* EditProfilerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilerViewController.swift; sourceTree = "<group>"; };
+		3233597B26121CDF005A71E5 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		3233597D26123BD3005A71E5 /* CustomSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearch.swift; sourceTree = "<group>"; };
 		3252CA202605117C00334218 /* MessageAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252CA232605117C00334218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3252CA252605117C00334218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +155,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3233597726121C96005A71E5 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				3233597826121CBA005A71E5 /* EditProfilerViewController.swift */,
+				3233597D26123BD3005A71E5 /* CustomSearch.swift */,
+				3233597B26121CDF005A71E5 /* EditProfile.storyboard */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		323668702606242000898564 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +201,7 @@
 		3252CA222605117C00334218 /* MessageAPP */ = {
 			isa = PBXGroup;
 			children = (
+				3233597726121C96005A71E5 /* Filter */,
 				32A5746E260B806E000079EA /* NewFriends */,
 				32A57465260B6CBD000079EA /* Friends */,
 				3253A2DC260A72D500512011 /* TabBar */,
@@ -438,6 +455,7 @@
 			files = (
 				3252CA302605117E00334218 /* LaunchScreen.storyboard in Resources */,
 				32A57472260B80BB000079EA /* Settings.storyboard in Resources */,
+				3233597C26121CDF005A71E5 /* EditProfile.storyboard in Resources */,
 				3253A2E0260A731300512011 /* TabBar.storyboard in Resources */,
 				3252CA2D2605117E00334218 /* Assets.xcassets in Resources */,
 				3253A2D7260A4B8E00512011 /* GoogleService-Info.plist in Resources */,
@@ -593,9 +611,11 @@
 				32A57470260B80A9000079EA /* SettingsViewController.swift in Sources */,
 				322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */,
 				32D743DB260D04B7005ADC70 /* SettingsViewControllerDelegate.swift in Sources */,
+				3233597926121CBA005A71E5 /* EditProfilerViewController.swift in Sources */,
 				3252CA242605117C00334218 /* AppDelegate.swift in Sources */,
 				32D6169C260A076200F9B563 /* RegisterViewController.swift in Sources */,
 				3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */,
+				3233597E26123BD3005A71E5 /* CustomSearch.swift in Sources */,
 				3252CA262605117C00334218 /* SceneDelegate.swift in Sources */,
 				32B6167A260525950072E1A2 /* GradientColors.swift in Sources */,
 			);

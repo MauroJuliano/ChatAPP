@@ -15,6 +15,7 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var usuarioImageView: UIImageView!
     @IBOutlet weak var timeMessageLabel: UILabel!
     let dateFormatter = DateFormatter()
+    var dateOutrange = NSDate(timeIntervalSinceNow: -604800) as Date
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,14 +33,27 @@ class ChatTableViewCell: UITableViewCell {
         usuarioLabel.text = user.name
         
         let epoc = Double(user.timeStamp)
-        var epocTime = NSDate(timeIntervalSince1970: epoc ?? 0.0)
-        let date = dateFormatter.string(from: epocTime as Date)
+        var epocTime = NSDate(timeIntervalSince1970: epoc ?? 0.0) as Date
+        let date = dateFormatter.string(from: epocTime)
         
+        if Calendar.current.isDateInToday(epocTime) {
+           timeMessageLabel.text = date
+        }else if Calendar.current.isDateInYesterday(epocTime) {
+            timeMessageLabel.text = "Yesterday"
+        }else{
+            if epocTime < dateOutrange {
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                let daysAgo = dateFormatter.string(from: epocTime)
+                 timeMessageLabel.text = daysAgo
+            }else{
+                dateFormatter.dateFormat = "EEEE"
+            let week = dateFormatter.string(from: epocTime)
+                timeMessageLabel.text = week
+         }
+        }
         lastMessageLabel.text = user.lastMessage
-        timeMessageLabel.text = date
+        
         let url = URL(string: user.image)
         usuarioImageView.kf.setImage(with: url)
-        
-        
     }
 }

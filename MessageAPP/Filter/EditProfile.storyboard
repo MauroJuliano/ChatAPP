@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LaP-II-AeN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--EditProfile-->
+        <scene sceneID="wuj-75-0Ab">
+            <objects>
+                <viewController storyboardIdentifier="EditProfile" title="EditProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LaP-II-AeN" customClass="EditProfilerViewController" customModule="MessageAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x8h-3E-5MA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IID-LM-flT" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
+                                <rect key="frame" x="87" y="290" width="240" height="57.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7d-oO-nvs">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="B7d-oO-nvs" secondAttribute="trailing" id="5qL-Bp-O7p"/>
+                                    <constraint firstAttribute="bottom" secondItem="B7d-oO-nvs" secondAttribute="bottom" id="BCO-On-rSE"/>
+                                    <constraint firstAttribute="height" constant="57.5" id="R32-Ig-ano"/>
+                                    <constraint firstItem="B7d-oO-nvs" firstAttribute="top" secondItem="IID-LM-flT" secondAttribute="top" id="ucA-3c-OaO"/>
+                                    <constraint firstItem="B7d-oO-nvs" firstAttribute="leading" secondItem="IID-LM-flT" secondAttribute="leading" id="wOw-oB-T5g"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ixv-gA-MSe">
+                                <rect key="frame" x="20" y="414" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-AZ-bFZ">
+                                <rect key="frame" x="20" y="487" width="374" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obA-Sq-KIy" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
+                                <rect key="frame" x="125" y="73" width="150" height="170"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="she" translatesAutoresizingMaskIntoConstraints="NO" id="jIn-jf-SVv">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jIn-jf-SVv" secondAttribute="trailing" id="3KN-H9-vdX"/>
+                                    <constraint firstItem="jIn-jf-SVv" firstAttribute="top" secondItem="obA-Sq-KIy" secondAttribute="top" id="YgC-BN-6Zc"/>
+                                    <constraint firstItem="jIn-jf-SVv" firstAttribute="leading" secondItem="obA-Sq-KIy" secondAttribute="leading" id="eZt-ne-GIA"/>
+                                    <constraint firstAttribute="height" constant="170" id="pS5-sl-BlI"/>
+                                    <constraint firstAttribute="bottom" secondItem="jIn-jf-SVv" secondAttribute="bottom" id="pxe-AR-6cK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="IID-LM-flT" secondAttribute="trailing" constant="87" id="6YB-AZ-BCP"/>
+                            <constraint firstItem="zG6-IV-Ogf" firstAttribute="bottom" secondItem="WoQ-AZ-bFZ" secondAttribute="bottom" constant="247" id="D2X-xs-9SR"/>
+                            <constraint firstItem="IID-LM-flT" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="87" id="F0k-fr-DXA"/>
+                            <constraint firstItem="obA-Sq-KIy" firstAttribute="top" secondItem="zG6-IV-Ogf" secondAttribute="top" constant="29" id="FQd-qd-zk5"/>
+                            <constraint firstItem="ixv-gA-MSe" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="20" id="LbQ-zC-Lr1"/>
+                            <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="WoQ-AZ-bFZ" secondAttribute="trailing" constant="20" id="MQq-Sw-U5b"/>
+                            <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="obA-Sq-KIy" secondAttribute="trailing" constant="139" id="X4H-Gc-9ZS"/>
+                            <constraint firstItem="WoQ-AZ-bFZ" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="20" id="cdZ-Gv-hrZ"/>
+                            <constraint firstItem="IID-LM-flT" firstAttribute="top" secondItem="obA-Sq-KIy" secondAttribute="bottom" constant="47" id="eOl-2Q-RSE"/>
+                            <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="ixv-gA-MSe" secondAttribute="trailing" constant="20" id="oCu-MQ-fDa"/>
+                            <constraint firstItem="WoQ-AZ-bFZ" firstAttribute="top" secondItem="ixv-gA-MSe" secondAttribute="bottom" constant="39" id="t2f-xX-kwY"/>
+                            <constraint firstItem="obA-Sq-KIy" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="125" id="udH-tC-2OX"/>
+                            <constraint firstItem="ixv-gA-MSe" firstAttribute="top" secondItem="IID-LM-flT" secondAttribute="bottom" constant="66.5" id="vEf-fT-0M7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zG6-IV-Ogf"/>
+                    </view>
+                    <connections>
+                        <outlet property="bioTextView" destination="WoQ-AZ-bFZ" id="eRi-se-nio"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="83n-xc-O9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.36231884057972" y="34.821428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="she" width="3984" height="5976"/>
+    </resources>
+</document>

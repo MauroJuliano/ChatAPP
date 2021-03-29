@@ -44,6 +44,7 @@ class UserRequest {
                                                        email: email,
                                                        name: name, image: image,
                                                        bio: bio))
+                   // completionHandler(true,nil)
              }
          }
                 completionHandler(true,nil)
@@ -52,11 +53,10 @@ class UserRequest {
   }
     
     func getContato(completionHandler: @escaping  (_ result: Bool,_ result: Bool?) -> Void) {
-        self.chatActive.removeAll()
+        //self.chatActive.removeAll()
         let contact = db.collection("users").document(self.uid!).collection("contatos").order(by: "timeStamp", descending: true)
         contact.getDocuments { (querySnapshot, err) in
             if let err = err {
-                
             }else {
                 for document in querySnapshot!.documents {
                     if let userID = document["userID"] as? String {
@@ -67,8 +67,8 @@ class UserRequest {
                         for itens in self.users {
                          
                             if chatID != nil {
-                                
-                                if self.chatActive.contains(where: { $0.chatID == chatID}){ } else {
+                                if self.chatActive.contains(where: { $0.chatID == chatID}){
+                                } else {
                                 
                                     if userID == itens.userID {
                                         self.chatActive.append(Friends(userID: userID,
@@ -76,11 +76,10 @@ class UserRequest {
                                         name: itens.name,
                                         image: itens.image,
                                         chatID: chatID ?? "", bio: itens.bio,timeStamp:"\(timeStamp!)" ?? "", lastMessage: lastMessage ?? ""))
-                                        
+
                                         chatID = ""
                                     }
                                 }
-                                
                             }
                             
                             if userID == itens.userID {
@@ -91,11 +90,10 @@ class UserRequest {
                                     image: itens.image,
                                     chatID: chatID ?? "", bio: itens.bio,timeStamp:"\(timeStamp!)" ?? "", lastMessage: lastMessage ?? ""
                                     ))
-                                                                  
-                                  completionHandler(true, nil)
-                                    }
+                               }
                             }
                         }
+                         completionHandler(true, nil)
                        
                     }
                 }

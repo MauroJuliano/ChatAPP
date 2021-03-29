@@ -28,6 +28,15 @@ class SettingsViewControllerDelegate: NSObject, UITableViewDataSource, UITableVi
             return cell
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? settingsTableViewCell
+        
+        if cell?.settingsLabel.text == "Edit Profile" {
+            if let vc = UIStoryboard(name: "EditProfile", bundle: nil).instantiateInitialViewController() as? EditProfilerViewController {
+                self.view?.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
     
     
 }

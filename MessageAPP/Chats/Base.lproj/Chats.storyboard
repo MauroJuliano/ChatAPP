@@ -74,16 +74,39 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="magnifyingglass" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="filterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x3e-YW-xkm"/>
+                                                    </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1x-i6-L2y">
+                                                    <rect key="frame" x="67" y="17" width="228" height="40"/>
+                                                    <subviews>
+                                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yy9-8n-Mmv">
+                                                            <rect key="frame" x="0.0" y="0.0" width="228" height="40"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </searchBar>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Yy9-8n-Mmv" firstAttribute="top" secondItem="i1x-i6-L2y" secondAttribute="top" id="QVi-o2-tdB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Yy9-8n-Mmv" secondAttribute="trailing" id="g9C-VJ-aax"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Yy9-8n-Mmv" secondAttribute="bottom" id="hsS-oM-cXl"/>
+                                                        <constraint firstItem="Yy9-8n-Mmv" firstAttribute="leading" secondItem="i1x-i6-L2y" secondAttribute="leading" id="sYE-Xq-Jxb"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstItem="tKw-kY-0kv" firstAttribute="leading" secondItem="4aL-j4-Fjc" secondAttribute="trailing" constant="5" id="1MU-ga-9vA"/>
+                                                <constraint firstItem="i1x-i6-L2y" firstAttribute="leading" secondItem="DmM-7d-70K" secondAttribute="leading" constant="67" id="3cy-gI-UUO"/>
+                                                <constraint firstItem="i1x-i6-L2y" firstAttribute="top" secondItem="DmM-7d-70K" secondAttribute="top" constant="17" id="4hD-PP-CWm"/>
                                                 <constraint firstItem="tKw-kY-0kv" firstAttribute="top" secondItem="DmM-7d-70K" secondAttribute="top" constant="17" id="IjC-Kg-icm"/>
                                                 <constraint firstItem="4aL-j4-Fjc" firstAttribute="top" secondItem="DmM-7d-70K" secondAttribute="top" constant="17" id="RB9-kq-nXC"/>
                                                 <constraint firstItem="ERR-z9-HUD" firstAttribute="top" secondItem="DmM-7d-70K" secondAttribute="top" constant="13" id="SIe-fe-p5X"/>
+                                                <constraint firstItem="4aL-j4-Fjc" firstAttribute="leading" secondItem="i1x-i6-L2y" secondAttribute="trailing" constant="8" id="dqa-CW-eFV"/>
                                                 <constraint firstItem="ERR-z9-HUD" firstAttribute="leading" secondItem="DmM-7d-70K" secondAttribute="leading" constant="25" id="rvW-jd-jKw"/>
                                                 <constraint firstAttribute="trailing" secondItem="tKw-kY-0kv" secondAttribute="trailing" constant="26" id="xHJ-KT-Akm"/>
+                                                <constraint firstAttribute="bottom" secondItem="i1x-i6-L2y" secondAttribute="bottom" constant="18" id="zgm-26-ekH"/>
                                             </constraints>
                                         </view>
                                         <prototypes>
@@ -193,7 +216,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="la7-iK-Efx"/>
                     <connections>
+                        <outlet property="leftConstraints" destination="3cy-gI-UUO" id="U1I-VC-ulK"/>
                         <outlet property="messageTableView" destination="ud1-6Q-N0u" id="phA-A2-Yyi"/>
+                        <outlet property="searchBar" destination="Yy9-8n-Mmv" id="cZA-cW-bkc"/>
+                        <outlet property="searchView" destination="i1x-i6-L2y" id="csW-rm-iw6"/>
                         <outlet property="topView" destination="qcS-fz-QGj" id="Lay-Ea-VXj"/>
                     </connections>
                 </viewController>
