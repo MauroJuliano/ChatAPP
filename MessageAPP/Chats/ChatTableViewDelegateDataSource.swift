@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, HeaderDelegate {
     
     weak var view: ChatsViewController?
     var usuarioArray = ["John Win", "Rhyssand", "Morrigan"]
@@ -74,6 +74,39 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
             self.filtered.removeAll()
             view?.messageTableView.reloadData()
         }
+    }
+    
+}
+extension ChatTableViewDelegateDataSource : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "statusCell", for: indexPath) as! StatusCollectionViewCell
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "statusHeader", for: indexPath) as! StatusCollectionReusableView
+        
+        if let index = view?.currentUser {
+            cell.setup(user: index)
+        }
+        cell.selectCell()
+        cell.delegate = self
+        return cell
+    }
+    
+    func doSomething(){
+
+       
+    }
+    func goToNewStatus(){
+        if let vc = UIStoryboard(name: "NewStatus", bundle: nil).instantiateInitialViewController() as? NewStatusViewController {
+                   vc.modalPresentationStyle = .fullScreen
+                   self.view?.present(vc, animated: true, completion: nil)
+               }
     }
     
 }

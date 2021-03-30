@@ -74,6 +74,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fc2-aT-90C">
+                                <rect key="frame" x="87" y="290" width="240" height="58"/>
+                                <connections>
+                                    <action selector="chooseImageButton:" destination="LaP-II-AeN" eventType="touchUpInside" id="Pwl-hn-BNy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -83,9 +89,13 @@
                             <constraint firstItem="obA-Sq-KIy" firstAttribute="top" secondItem="zG6-IV-Ogf" secondAttribute="top" constant="29" id="FQd-qd-zk5"/>
                             <constraint firstItem="ixv-gA-MSe" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="20" id="LbQ-zC-Lr1"/>
                             <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="WoQ-AZ-bFZ" secondAttribute="trailing" constant="20" id="MQq-Sw-U5b"/>
+                            <constraint firstItem="fc2-aT-90C" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="87" id="V4m-tU-mkK"/>
                             <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="obA-Sq-KIy" secondAttribute="trailing" constant="139" id="X4H-Gc-9ZS"/>
                             <constraint firstItem="WoQ-AZ-bFZ" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="20" id="cdZ-Gv-hrZ"/>
                             <constraint firstItem="IID-LM-flT" firstAttribute="top" secondItem="obA-Sq-KIy" secondAttribute="bottom" constant="47" id="eOl-2Q-RSE"/>
+                            <constraint firstItem="fc2-aT-90C" firstAttribute="top" secondItem="obA-Sq-KIy" secondAttribute="bottom" constant="47" id="edQ-Pe-Ueg"/>
+                            <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="fc2-aT-90C" secondAttribute="trailing" constant="87" id="jeQ-m9-0XH"/>
+                            <constraint firstItem="ixv-gA-MSe" firstAttribute="top" secondItem="fc2-aT-90C" secondAttribute="bottom" constant="66" id="nV6-AK-TQR"/>
                             <constraint firstItem="zG6-IV-Ogf" firstAttribute="trailing" secondItem="ixv-gA-MSe" secondAttribute="trailing" constant="20" id="oCu-MQ-fDa"/>
                             <constraint firstItem="WoQ-AZ-bFZ" firstAttribute="top" secondItem="ixv-gA-MSe" secondAttribute="bottom" constant="39" id="t2f-xX-kwY"/>
                             <constraint firstItem="obA-Sq-KIy" firstAttribute="leading" secondItem="zG6-IV-Ogf" secondAttribute="leading" constant="125" id="udH-tC-2OX"/>
@@ -95,6 +105,7 @@
                     </view>
                     <connections>
                         <outlet property="bioTextView" destination="WoQ-AZ-bFZ" id="eRi-se-nio"/>
+                        <outlet property="editImageView" destination="jIn-jf-SVv" id="EbY-Tw-caO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83n-xc-O9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

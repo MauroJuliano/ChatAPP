@@ -22,17 +22,24 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        
         controller = SettingsViewControllerDelegate(view: self)
         
         settingsTableView.delegate = controller
         settingsTableView.dataSource = controller
         
         setupUI()
-        getUser()
+        //getUser()
         
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+         self.navigationController?.navigationBar.isHidden = true
+               getUser()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
     func getUser(){
         userRequest.getUsers(completionHandler: { success, _ in

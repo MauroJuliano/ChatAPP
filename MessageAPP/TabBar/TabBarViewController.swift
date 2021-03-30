@@ -61,8 +61,8 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
     guard let vc4 = UIStoryboard(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController") as? UINavigationController else {return}
         
     guard let vc2 = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsNavigationController") as? UINavigationController else {return}
-
-       let vc3 = UIViewController()
+        
+        let vc3 = UIViewController()
        vc3.view.backgroundColor = .red
         
         tabController.delegate = self

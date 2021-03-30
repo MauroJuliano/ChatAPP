@@ -7,26 +7,29 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class ChatsViewController: UIViewController {
 
 
+    @IBOutlet weak var statusCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchView: UIView!
-        @IBOutlet weak var topView: UIView!
-        @IBOutlet weak var messageTableView: UITableView!
-        @IBOutlet weak var leftConstraints: NSLayoutConstraint!
-        private var userRequest: UserRequest?
-        var controller: ChatTableViewDelegateDataSource?
-
-        private var shouldCollapse = true
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var messageTableView: UITableView!
+    @IBOutlet weak var leftConstraints: NSLayoutConstraint!
+    private var userRequest: UserRequest?
+    var controller: ChatTableViewDelegateDataSource?
+    let uid = Auth.auth().currentUser?.uid
+    private var shouldCollapse = true
     
-        var messagesArray = [User]()
-        var chatArray = [Friends]()
+    var messagesArray = [User]()
+    var currentUser: Users?
+    var chatArray = [Friends]()
     
     var buttonSearch: Bool {
         return shouldCollapse ? true : false
     }
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             leftConstraints.constant = CGFloat(300)
@@ -35,6 +38,10 @@ class ChatsViewController: UIViewController {
            
             messageTableView.delegate = controller
             messageTableView.dataSource = controller
+            
+            statusCollectionView.delegate = controller
+            statusCollectionView.dataSource = controller
+            
             searchBar.delegate = controller
             
             setupUI()
@@ -51,12 +58,21 @@ class ChatsViewController: UIViewController {
     @objc func getChats() {
         userRequest?.getUsers(completionHandler: { success, _ in
             if success {
+                if let index = self.userRequest?.users {
+                    for itens in index {
+                        if itens.userID == self.uid {
+                            self.currentUser = itens
+                        self.statusCollectionView.reloadData()
+                        }
+                    }
+                }
                 self.userRequest?.getContato(completionHandler: { success, _ in
                     if success {
                         self.chatArray.removeAll()
                         self.chatArray.append(contentsOf: self.userRequest!.chatActive)
                         
                         self.messageTableView.reloadData()
+                       
                     }
                 
                 })
@@ -98,5 +114,8 @@ class ChatsViewController: UIViewController {
         UIView.animate(withDuration: 1){
             self.view.layoutIfNeeded()
         }
+    }
+    @IBAction func adicionarNovoStatus(_ sender: Any) {
+        controller?.goToNewStatus()
     }
 }

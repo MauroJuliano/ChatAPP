@@ -11,6 +11,10 @@
 		3233597926121CBA005A71E5 /* EditProfilerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3233597826121CBA005A71E5 /* EditProfilerViewController.swift */; };
 		3233597C26121CDF005A71E5 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3233597B26121CDF005A71E5 /* EditProfile.storyboard */; };
 		3233597E26123BD3005A71E5 /* CustomSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3233597D26123BD3005A71E5 /* CustomSearch.swift */; };
+		32412BEC2613404B0010142F /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412BEB2613404B0010142F /* StatusCollectionViewCell.swift */; };
+		32412BEE26134C550010142F /* StatusCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412BED26134C550010142F /* StatusCollectionReusableView.swift */; };
+		32412BF126136B340010142F /* NewStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412BF026136B340010142F /* NewStatusViewController.swift */; };
+		32412BF326136B8A0010142F /* NewStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32412BF226136B8A0010142F /* NewStatus.storyboard */; };
 		3252CA242605117C00334218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA232605117C00334218 /* AppDelegate.swift */; };
 		3252CA262605117C00334218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA252605117C00334218 /* SceneDelegate.swift */; };
 		3252CA282605117C00334218 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3252CA272605117C00334218 /* ViewController.swift */; };
@@ -27,6 +31,7 @@
 		3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DA260A6F8900512011 /* BATabBarController.swift */; };
 		3253A2DE260A72FA00512011 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DD260A72FA00512011 /* TabBarViewController.swift */; };
 		3253A2E0260A731300512011 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3253A2DF260A731300512011 /* TabBar.storyboard */; };
+		3274E2F52613ACF1001445EC /* EditProfileViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274E2F42613ACF1001445EC /* EditProfileViewControllerDelegate.swift */; };
 		32A57467260B6D19000079EA /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A57466260B6D19000079EA /* FriendsViewController.swift */; };
 		32A57469260B6D6C000079EA /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A57468260B6D6C000079EA /* Friends.storyboard */; };
 		32A5746B260B6D88000079EA /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5746A260B6D88000079EA /* FriendsTableViewCell.swift */; };
@@ -76,6 +81,10 @@
 		3233597826121CBA005A71E5 /* EditProfilerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilerViewController.swift; sourceTree = "<group>"; };
 		3233597B26121CDF005A71E5 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		3233597D26123BD3005A71E5 /* CustomSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearch.swift; sourceTree = "<group>"; };
+		32412BEB2613404B0010142F /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
+		32412BED26134C550010142F /* StatusCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionReusableView.swift; sourceTree = "<group>"; };
+		32412BF026136B340010142F /* NewStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStatusViewController.swift; sourceTree = "<group>"; };
+		32412BF226136B8A0010142F /* NewStatus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewStatus.storyboard; sourceTree = "<group>"; };
 		3252CA202605117C00334218 /* MessageAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessageAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3252CA232605117C00334218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3252CA252605117C00334218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 		3253A2DA260A6F8900512011 /* BATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BATabBarController.swift; sourceTree = "<group>"; };
 		3253A2DD260A72FA00512011 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3253A2DF260A731300512011 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		3274E2F42613ACF1001445EC /* EditProfileViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewControllerDelegate.swift; sourceTree = "<group>"; };
 		32A57466260B6D19000079EA /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		32A57468260B6D6C000079EA /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		32A5746A260B6D88000079EA /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +171,7 @@
 				3233597826121CBA005A71E5 /* EditProfilerViewController.swift */,
 				3233597D26123BD3005A71E5 /* CustomSearch.swift */,
 				3233597B26121CDF005A71E5 /* EditProfile.storyboard */,
+				3274E2F42613ACF1001445EC /* EditProfileViewControllerDelegate.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -174,6 +185,15 @@
 				322BEB242608C31D00ACC7B5 /* customTextField.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		32412BEF26136A7C0010142F /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				32412BF026136B340010142F /* NewStatusViewController.swift */,
+				32412BF226136B8A0010142F /* NewStatus.storyboard */,
+			);
+			path = Status;
 			sourceTree = "<group>";
 		};
 		3252CA172605117C00334218 = {
@@ -201,6 +221,7 @@
 		3252CA222605117C00334218 /* MessageAPP */ = {
 			isa = PBXGroup;
 			children = (
+				32412BEF26136A7C0010142F /* Status */,
 				3233597726121C96005A71E5 /* Filter */,
 				32A5746E260B806E000079EA /* NewFriends */,
 				32A57465260B6CBD000079EA /* Friends */,
@@ -247,7 +268,9 @@
 			children = (
 				3252CA292605117C00334218 /* Chats.storyboard */,
 				32DB89E82608B5A000325725 /* ChatsViewController.swift */,
+				32412BEB2613404B0010142F /* StatusCollectionViewCell.swift */,
 				3252CA542605130200334218 /* ChatTableViewDelegateDataSource.swift */,
+				32412BED26134C550010142F /* StatusCollectionReusableView.swift */,
 				3252CA56260514AC00334218 /* ChatTableViewCell.swift */,
 			);
 			path = Chats;
@@ -462,6 +485,7 @@
 				32D6169A260A075100F9B563 /* Register.storyboard in Resources */,
 				32DB89E72608B4BA00325725 /* Main.storyboard in Resources */,
 				32A57469260B6D6C000079EA /* Friends.storyboard in Resources */,
+				32412BF326136B8A0010142F /* NewStatus.storyboard in Resources */,
 				32B616802605382A0072E1A2 /* she.jpg in Resources */,
 				32B6167F2605382A0072E1A2 /* he.jpg in Resources */,
 				3252CA2B2605117C00334218 /* Chats.storyboard in Resources */,
@@ -603,12 +627,16 @@
 				3252CA552605130200334218 /* ChatTableViewDelegateDataSource.swift in Sources */,
 				32B6168326053D3B0072E1A2 /* MessageModel.swift in Sources */,
 				32A5746D260B7CC2000079EA /* FriendsViewControllerDelegate.swift in Sources */,
+				32412BEE26134C550010142F /* StatusCollectionReusableView.swift in Sources */,
 				3253A2D9260A4DD300512011 /* RegisterViewControllerDelegate.swift in Sources */,
 				32A5746B260B6D88000079EA /* FriendsTableViewCell.swift in Sources */,
+				32412BEC2613404B0010142F /* StatusCollectionViewCell.swift in Sources */,
 				32DB89E92608B5A000325725 /* ChatsViewController.swift in Sources */,
 				3252CA57260514AC00334218 /* ChatTableViewCell.swift in Sources */,
+				3274E2F52613ACF1001445EC /* EditProfileViewControllerDelegate.swift in Sources */,
 				32A57474260B8B4F000079EA /* Users.swift in Sources */,
 				32A57470260B80A9000079EA /* SettingsViewController.swift in Sources */,
+				32412BF126136B340010142F /* NewStatusViewController.swift in Sources */,
 				322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */,
 				32D743DB260D04B7005ADC70 /* SettingsViewControllerDelegate.swift in Sources */,
 				3233597926121CBA005A71E5 /* EditProfilerViewController.swift in Sources */,

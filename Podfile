@@ -12,11 +12,13 @@ target 'MessageAPP' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'BATabBarController', '~> 2.0.0'
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'JJFloatingActionButton'
   pod 'Kingfisher', '~> 5.0'
+  pod 'SwiftyCam'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing
