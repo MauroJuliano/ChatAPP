@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
+import FirebaseStorage
+import FirebaseAuth
+import Firebase
+class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-class NewStatusViewController: UIViewController {
-
+    let ref: DatabaseReference = Database.database().reference()
+     private let db = Firestore.firestore()
+    
     @IBOutlet weak var barRight: UIView!
     @IBOutlet weak var barLeft: UIView!
     @IBOutlet weak var roundLeft: UIView!
@@ -18,25 +24,107 @@ class NewStatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-       
-        // Do any additional setup after loading the view.
-    }
-    func cameraConfig() {
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            guard imageView == nil else { return }
+            openCamera()
+        }else{
+            guard imageView == nil else { return }
+            noCamera()
+        }
+        
+    }
+    func openCamera(){
+        let pickerImage = UIImagePickerController()
+        pickerImage.sourceType = .camera
+        pickerImage.allowsEditing = true
+        pickerImage.delegate = self
+        present(pickerImage, animated: true)
+    }
+    
+    func noCamera(){
+        let alert = UIAlertController(title: "We could not acess your camera", message: "anyhow you can access your Photos and share it", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func photosButton(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.modalPresentationStyle = .fullScreen
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            imageView.contentMode = .scaleAspectFill
+            imageView.image = chosenImage
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func sendToButton(_ sender: Any) {
+        self.saveFIRData(completionHandler: { success, _ in
+            if success {
+                print("success")
+            }
+        })
+        
+    }
+    
     @IBAction func returnButtton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func saveFIRData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+        uploadImage(imageView.image!) {(url, error) in
+            if url != nil {
+                return self.saveImage(name: "", profileUrl: url!) { (url, error) in
+                    completionHandler(url != nil, error)
+                }
+            }
+            completionHandler(false,error)
+        }
+        
     }
-    */
-
+    func uploadImage(_ image: UIImage, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void){
+        let newChild = ref.childByAutoId()
+        let storageRef = Storage.storage().reference().child("\(newChild).png")
+        let imgData = imageView.image?.pngData()
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        storageRef.putData(imgData!, metadata: metaData) {(metadata, error) in
+            if error == nil {
+                storageRef.downloadURL(completion: {(url, error) in
+                    completionHandler(url,nil)
+                })
+            }else {
+                completionHandler(nil, error)
+            }
+        }
+        
+    }
+    
+    func saveImage(name: String, profileUrl: URL, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void) {
+        if let currentUserD = Auth.auth().currentUser?.uid {
+            let userRef = db.collection("stories")
+                
+            
+            let dict: [String: Any] = [
+                "userID": currentUserD,
+                "TimeStamp": Date().timeIntervalSince1970,
+                "statusImage":  profileUrl.absoluteString ]
+            
+            userRef.addDocument(data: dict)
+        }
+    }
 }
+

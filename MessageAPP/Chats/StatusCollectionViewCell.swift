@@ -7,7 +7,14 @@
 //
 
 import UIKit
-
+import Kingfisher
 class StatusCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var statusImage: UIImageView!
+    
+    func setup(friends: Friends){
+        let url = URL(string: friends.image)
+        print(url)
+        statusImage.kf.setImage(with: url)
+    }
     
 }

@@ -79,11 +79,15 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
 }
 extension ChatTableViewDelegateDataSource : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return view?.statusArray.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "statusCell", for: indexPath) as! StatusCollectionViewCell
+        if let index = view?.statusArray[indexPath.row] {
+              cell.setup(friends: index)
+        }
+      
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -99,7 +103,11 @@ extension ChatTableViewDelegateDataSource : UICollectionViewDelegate, UICollecti
     }
     
     func doSomething(){
-
+//status
+        if let vc = UIStoryboard(name: "Status", bundle: nil).instantiateInitialViewController() as? StatusViewController {
+                         vc.modalPresentationStyle = .fullScreen
+                         self.view?.present(vc, animated: true, completion: nil)
+                     }
        
     }
     func goToNewStatus(){

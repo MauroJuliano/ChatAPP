@@ -25,7 +25,7 @@ class ChatsViewController: UIViewController {
     var messagesArray = [User]()
     var currentUser: Users?
     var chatArray = [Friends]()
-    
+    var statusArray = [Friends]()
     var buttonSearch: Bool {
         return shouldCollapse ? true : false
     }
@@ -58,16 +58,22 @@ class ChatsViewController: UIViewController {
     @objc func getChats() {
         userRequest?.getUsers(completionHandler: { success, _ in
             if success {
+                
                 if let index = self.userRequest?.users {
+                    
                     for itens in index {
+                        
                         if itens.userID == self.uid {
                             self.currentUser = itens
                         self.statusCollectionView.reloadData()
                         }
+                        
                     }
                 }
                 self.userRequest?.getContato(completionHandler: { success, _ in
                     if success {
+                        self.statusArray.append(contentsOf: self.userRequest!.friendsStatus)
+                         self.statusCollectionView.reloadData()
                         self.chatArray.removeAll()
                         self.chatArray.append(contentsOf: self.userRequest!.chatActive)
                         

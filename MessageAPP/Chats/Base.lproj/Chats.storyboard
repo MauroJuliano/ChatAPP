@@ -91,6 +91,9 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="60" height="60"/>
+                                                            <connections>
+                                                                <outlet property="statusImage" destination="GNs-qq-VFg" id="lcq-oa-W7H"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="statusHeader" id="LNs-d7-G3K" customClass="StatusCollectionReusableView" customModule="MessageAPP" customModuleProvider="target">

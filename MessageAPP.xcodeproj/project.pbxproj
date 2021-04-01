@@ -11,6 +11,9 @@
 		3233597926121CBA005A71E5 /* EditProfilerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3233597826121CBA005A71E5 /* EditProfilerViewController.swift */; };
 		3233597C26121CDF005A71E5 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3233597B26121CDF005A71E5 /* EditProfile.storyboard */; };
 		3233597E26123BD3005A71E5 /* CustomSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3233597D26123BD3005A71E5 /* CustomSearch.swift */; };
+		323C1C1B2614E253005E3C65 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C1C1A2614E253005E3C65 /* StatusViewController.swift */; };
+		323C1C1D2614E283005E3C65 /* Status.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 323C1C1C2614E283005E3C65 /* Status.storyboard */; };
+		323C1C1F2614F18B005E3C65 /* StatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C1C1E2614F18B005E3C65 /* StatusRequest.swift */; };
 		32412BEC2613404B0010142F /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412BEB2613404B0010142F /* StatusCollectionViewCell.swift */; };
 		32412BEE26134C550010142F /* StatusCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412BED26134C550010142F /* StatusCollectionReusableView.swift */; };
 		32412BF126136B340010142F /* NewStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32412BF026136B340010142F /* NewStatusViewController.swift */; };
@@ -81,6 +84,9 @@
 		3233597826121CBA005A71E5 /* EditProfilerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilerViewController.swift; sourceTree = "<group>"; };
 		3233597B26121CDF005A71E5 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		3233597D26123BD3005A71E5 /* CustomSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearch.swift; sourceTree = "<group>"; };
+		323C1C1A2614E253005E3C65 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		323C1C1C2614E283005E3C65 /* Status.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Status.storyboard; sourceTree = "<group>"; };
+		323C1C1E2614F18B005E3C65 /* StatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRequest.swift; sourceTree = "<group>"; };
 		32412BEB2613404B0010142F /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		32412BED26134C550010142F /* StatusCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionReusableView.swift; sourceTree = "<group>"; };
 		32412BF026136B340010142F /* NewStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStatusViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +198,9 @@
 			children = (
 				32412BF026136B340010142F /* NewStatusViewController.swift */,
 				32412BF226136B8A0010142F /* NewStatus.storyboard */,
+				323C1C1A2614E253005E3C65 /* StatusViewController.swift */,
+				323C1C1E2614F18B005E3C65 /* StatusRequest.swift */,
+				323C1C1C2614E283005E3C65 /* Status.storyboard */,
 			);
 			path = Status;
 			sourceTree = "<group>";
@@ -488,6 +497,7 @@
 				32412BF326136B8A0010142F /* NewStatus.storyboard in Resources */,
 				32B616802605382A0072E1A2 /* she.jpg in Resources */,
 				32B6167F2605382A0072E1A2 /* he.jpg in Resources */,
+				323C1C1D2614E283005E3C65 /* Status.storyboard in Resources */,
 				3252CA2B2605117C00334218 /* Chats.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,9 +653,11 @@
 				3252CA242605117C00334218 /* AppDelegate.swift in Sources */,
 				32D6169C260A076200F9B563 /* RegisterViewController.swift in Sources */,
 				3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */,
+				323C1C1F2614F18B005E3C65 /* StatusRequest.swift in Sources */,
 				3233597E26123BD3005A71E5 /* CustomSearch.swift in Sources */,
 				3252CA262605117C00334218 /* SceneDelegate.swift in Sources */,
 				32B6167A260525950072E1A2 /* GradientColors.swift in Sources */,
+				323C1C1B2614E253005E3C65 /* StatusViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

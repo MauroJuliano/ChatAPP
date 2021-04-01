@@ -28,25 +28,11 @@
                                                     <constraint firstAttribute="width" constant="358" id="df9-nu-faF"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-ha-x0v">
-                                                <rect key="frame" x="8" y="8" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="MCx-3w-YBd"/>
-                                                    <constraint firstAttribute="width" constant="40" id="VZL-hm-eQ4"/>
-                                                </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="return" catalog="system"/>
-                                                <connections>
-                                                    <action selector="returnButtton:" destination="7zS-iR-a6W" eventType="touchUpInside" id="nkq-tb-177"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="xwu-ha-x0v" firstAttribute="leading" secondItem="2pt-tO-VBO" secondAttribute="leading" constant="8" id="D2o-uX-pEP"/>
                                             <constraint firstItem="YyZ-2u-qqI" firstAttribute="top" secondItem="2pt-tO-VBO" secondAttribute="top" id="To4-ib-u0T"/>
                                             <constraint firstAttribute="bottom" secondItem="YyZ-2u-qqI" secondAttribute="bottom" id="gLo-iI-h0x"/>
-                                            <constraint firstItem="xwu-ha-x0v" firstAttribute="top" secondItem="2pt-tO-VBO" secondAttribute="top" constant="8" id="odG-Iv-z7i"/>
                                             <constraint firstItem="YyZ-2u-qqI" firstAttribute="leading" secondItem="2pt-tO-VBO" secondAttribute="leading" id="qfq-jU-u4z"/>
                                             <constraint firstAttribute="trailing" secondItem="YyZ-2u-qqI" secondAttribute="trailing" id="qhl-9V-q6f"/>
                                         </constraints>
@@ -130,12 +116,24 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-fR-GIS">
+                                                <rect key="frame" x="8" y="8" width="80" height="83"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="83" id="0Rc-ts-lIL"/>
+                                                    <constraint firstAttribute="width" constant="80" id="ncC-CP-iJd"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="photosButton:" destination="7zS-iR-a6W" eventType="touchUpInside" id="fuN-2b-zxv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="Zvu-Av-MrE" firstAttribute="leading" secondItem="NEv-yP-vir" secondAttribute="trailing" constant="30" id="8Y2-KN-f6Q"/>
+                                            <constraint firstItem="rV7-fR-GIS" firstAttribute="top" secondItem="IDD-VP-seU" secondAttribute="top" constant="8" id="DO7-sO-kTk"/>
                                             <constraint firstItem="NEv-yP-vir" firstAttribute="leading" secondItem="Dbr-4s-aXe" secondAttribute="trailing" constant="29" id="Krf-Sa-3Wu"/>
                                             <constraint firstAttribute="bottom" secondItem="NEv-yP-vir" secondAttribute="bottom" constant="13" id="ND1-Ry-HfV"/>
+                                            <constraint firstItem="rV7-fR-GIS" firstAttribute="leading" secondItem="IDD-VP-seU" secondAttribute="leading" constant="8" id="Tya-2S-V3t"/>
                                             <constraint firstItem="Zvu-Av-MrE" firstAttribute="top" secondItem="IDD-VP-seU" secondAttribute="top" constant="23" id="UWI-01-TkI"/>
                                             <constraint firstItem="NEv-yP-vir" firstAttribute="top" secondItem="IDD-VP-seU" secondAttribute="top" constant="13" id="gAh-QJ-uWi"/>
                                             <constraint firstAttribute="trailing" secondItem="Zvu-Av-MrE" secondAttribute="trailing" constant="18" id="gRK-EN-PTJ"/>
@@ -162,11 +160,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-ha-x0v">
+                                <rect key="frame" x="20" y="46" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="return" catalog="system"/>
+                                <connections>
+                                    <action selector="returnButtton:" destination="7zS-iR-a6W" eventType="touchUpInside" id="nkq-tb-177"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REo-xx-ebS">
+                                <rect key="frame" x="348" y="56" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="DoC-dn-UH9"/>
+                                    <constraint firstAttribute="height" constant="30" id="lba-TC-cGi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendToButton:" destination="7zS-iR-a6W" eventType="touchUpInside" id="hns-SZ-gZI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="SsM-ZW-abn" firstAttribute="trailing" secondItem="REo-xx-ebS" secondAttribute="trailing" constant="20" id="0md-K5-c9T"/>
                             <constraint firstItem="FfK-zg-F8z" firstAttribute="top" secondItem="SsM-ZW-abn" secondAttribute="top" constant="50" id="1qO-iy-1tK"/>
                             <constraint firstItem="SsM-ZW-abn" firstAttribute="bottom" secondItem="FfK-zg-F8z" secondAttribute="bottom" constant="59" id="Qck-OI-BXj"/>
+                            <constraint firstItem="REo-xx-ebS" firstAttribute="top" secondItem="SsM-ZW-abn" secondAttribute="top" constant="12" id="hnR-a1-B6h"/>
                             <constraint firstItem="FfK-zg-F8z" firstAttribute="leading" secondItem="SsM-ZW-abn" secondAttribute="leading" constant="20" id="jQe-iT-6il"/>
                             <constraint firstItem="SsM-ZW-abn" firstAttribute="trailing" secondItem="FfK-zg-F8z" secondAttribute="trailing" constant="20" id="sbc-2Y-S6E"/>
                         </constraints>

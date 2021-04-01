@@ -25,8 +25,10 @@ class UserRequest {
     var friends: [Friends] = []
     var emailRequest: String?
     var chatActive: [Friends] = []
-    
+    var statusActive: [Users] = []
+    var friendsStatus: [Friends] = []
     func getUsers(completionHandler: @escaping (_ result: Bool,_ result: Bool?) -> Void ){
+        self.statusActive.removeAll()
         reference = db.collection("users")
         reference?.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -39,7 +41,16 @@ class UserRequest {
                    let userID = document["userID"] as? String,
                    let image = document["imageProfile"] as? String,
                    let bio = document["Bio"] as? String{
-                  
+                   var hasStatusActive = document["hasStatusActive"] as? Bool
+                    
+                    if hasStatusActive == true {
+                      self.statusActive.append(Users(userID: userID,
+                                              email: email,
+                                              name: name,
+                                              image: image,
+                                              bio: bio))
+                   
+                    }
                     self.users.append(Users(userID: userID,
                                                        email: email,
                                                        name: name, image: image,
@@ -53,7 +64,7 @@ class UserRequest {
   }
     
     func getContato(completionHandler: @escaping  (_ result: Bool,_ result: Bool?) -> Void) {
-        //self.chatActive.removeAll()
+        self.friendsStatus.removeAll()
         let contact = db.collection("users").document(self.uid!).collection("contatos").order(by: "timeStamp", descending: true)
         contact.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -67,7 +78,7 @@ class UserRequest {
                         for itens in self.users {
                          
                             if chatID != nil {
-                                if self.chatActive.contains(where: { $0.chatID == chatID}){
+                                if self.chatActive.contains(where: {$0.chatID == chatID}){
                                 } else {
                                 
                                     if userID == itens.userID {
@@ -91,6 +102,22 @@ class UserRequest {
                                     chatID: chatID ?? "", bio: itens.bio,timeStamp:"\(timeStamp!)" ?? "", lastMessage: lastMessage ?? ""
                                     ))
                                }
+                            }
+                            
+                        }
+                        
+                        for itens in self.statusActive {
+                            if userID == itens.userID {
+                                if self.friendsStatus.contains(where: { $0.userID == userID}){ print(itens.name
+                                    )} else {
+                                          self.friendsStatus.append(Friends(userID: userID,
+                                                                   email: itens.email,
+                                                                   name: itens.name,
+                                                                   image: itens.image,
+                                                                   chatID: chatID ?? "", bio: itens.bio,timeStamp:"\(timeStamp!)" ?? "", lastMessage: lastMessage ?? ""
+                                                                   ))
+                                    print(self.friendsStatus.count)
+                                                              }
                             }
                         }
                          completionHandler(true, nil)

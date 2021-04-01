@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let uid2 = Auth.auth().currentUser?.uid
         if let uid = Auth.auth().currentUser?.uid {
             GoToFeed()
         }
