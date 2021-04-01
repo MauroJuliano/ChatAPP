@@ -65,18 +65,20 @@ class ChatsViewController: UIViewController {
                         
                         if itens.userID == self.uid {
                             self.currentUser = itens
-                        self.statusCollectionView.reloadData()
+                            self.statusCollectionView.reloadData()
                         }
                         
                     }
                 }
                 self.userRequest?.getContato(completionHandler: { success, _ in
                     if success {
-                        self.statusArray.append(contentsOf: self.userRequest!.friendsStatus)
-                         self.statusCollectionView.reloadData()
+                        self.statusArray.removeAll()
                         self.chatArray.removeAll()
+                        
+                        self.statusArray.append(contentsOf: self.userRequest!.friendsStatus)
                         self.chatArray.append(contentsOf: self.userRequest!.chatActive)
                         
+                        self.statusCollectionView.reloadData()
                         self.messageTableView.reloadData()
                        
                     }

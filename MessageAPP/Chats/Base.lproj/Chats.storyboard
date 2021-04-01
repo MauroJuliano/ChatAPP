@@ -62,18 +62,38 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xod-19-DR2" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="she" translatesAutoresizingMaskIntoConstraints="NO" id="GNs-qq-VFg">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                            </imageView>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-CJ-Hew" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
+                                                                                <rect key="frame" x="1" y="1" width="58" height="58"/>
+                                                                                <subviews>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="she" translatesAutoresizingMaskIntoConstraints="NO" id="GNs-qq-VFg">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                                                    </imageView>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="GNs-qq-VFg" secondAttribute="trailing" id="9jZ-Z1-I5n"/>
+                                                                                    <constraint firstAttribute="height" constant="58" id="GxS-qW-Bts"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="GNs-qq-VFg" secondAttribute="bottom" id="H39-cX-uEx"/>
+                                                                                    <constraint firstItem="GNs-qq-VFg" firstAttribute="leading" secondItem="LAS-CJ-Hew" secondAttribute="leading" id="cxi-07-Luo"/>
+                                                                                    <constraint firstAttribute="width" constant="58" id="evt-tf-ZY3"/>
+                                                                                    <constraint firstItem="GNs-qq-VFg" firstAttribute="top" secondItem="LAS-CJ-Hew" secondAttribute="top" id="wzO-yR-0Hn"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="29"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="60" id="92W-rO-oK3"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="GNs-qq-VFg" secondAttribute="bottom" id="A91-bM-VSV"/>
                                                                             <constraint firstAttribute="height" constant="60" id="Cen-Kl-kyD"/>
-                                                                            <constraint firstItem="GNs-qq-VFg" firstAttribute="top" secondItem="Xod-19-DR2" secondAttribute="top" id="Md4-IS-JOe"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="GNs-qq-VFg" secondAttribute="trailing" id="N5c-kB-WZ9"/>
-                                                                            <constraint firstItem="GNs-qq-VFg" firstAttribute="leading" secondItem="Xod-19-DR2" secondAttribute="leading" id="bt3-An-Dgk"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="LAS-CJ-Hew" secondAttribute="trailing" constant="1" id="dIs-8G-jlA"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="LAS-CJ-Hew" secondAttribute="bottom" constant="1" id="fgd-aM-WUV"/>
+                                                                            <constraint firstItem="LAS-CJ-Hew" firstAttribute="leading" secondItem="Xod-19-DR2" secondAttribute="leading" constant="1" id="rfm-cV-zDf"/>
+                                                                            <constraint firstItem="LAS-CJ-Hew" firstAttribute="top" secondItem="Xod-19-DR2" secondAttribute="top" constant="1" id="uQL-7K-31z"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
@@ -92,6 +112,7 @@
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="60" height="60"/>
                                                             <connections>
+                                                                <outlet property="statusBorder" destination="Xod-19-DR2" id="Pln-dH-MtN"/>
                                                                 <outlet property="statusImage" destination="GNs-qq-VFg" id="lcq-oa-W7H"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -103,17 +124,35 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usJ-U2-v9a" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="31" width="60" height="60"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="he" translatesAutoresizingMaskIntoConstraints="NO" id="TJ9-mp-4c0">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                    </imageView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHg-ZP-Uzs" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
+                                                                        <rect key="frame" x="1" y="1" width="58" height="58"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="he" translatesAutoresizingMaskIntoConstraints="NO" id="TJ9-mp-4c0">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="TJ9-mp-4c0" firstAttribute="leading" secondItem="iHg-ZP-Uzs" secondAttribute="leading" id="JRe-T9-73u"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="TJ9-mp-4c0" secondAttribute="trailing" id="VMF-HA-8Yk"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="TJ9-mp-4c0" secondAttribute="bottom" id="Xjl-Ph-Uxt"/>
+                                                                            <constraint firstItem="TJ9-mp-4c0" firstAttribute="top" secondItem="iHg-ZP-Uzs" secondAttribute="top" id="fH7-bQ-fk8"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="29"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" red="1" green="0.58362318469999996" blue="0.71920002080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="TJ9-mp-4c0" firstAttribute="leading" secondItem="usJ-U2-v9a" secondAttribute="leading" id="0s3-ZR-yyo"/>
-                                                                    <constraint firstItem="TJ9-mp-4c0" firstAttribute="top" secondItem="usJ-U2-v9a" secondAttribute="top" id="4Pd-ud-ldR"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="TJ9-mp-4c0" secondAttribute="bottom" id="I9T-Yh-kYE"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="TJ9-mp-4c0" secondAttribute="trailing" id="LjJ-aA-JkN"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="iHg-ZP-Uzs" secondAttribute="trailing" constant="1" id="33z-iv-Ue3"/>
+                                                                    <constraint firstItem="iHg-ZP-Uzs" firstAttribute="leading" secondItem="usJ-U2-v9a" secondAttribute="leading" constant="1" id="IC6-bB-THv"/>
                                                                     <constraint firstAttribute="width" constant="60" id="X2p-jm-VqZ"/>
+                                                                    <constraint firstItem="iHg-ZP-Uzs" firstAttribute="top" secondItem="usJ-U2-v9a" secondAttribute="top" constant="1" id="ZwM-UQ-abv"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="iHg-ZP-Uzs" secondAttribute="bottom" constant="1" id="e09-3h-ouI"/>
                                                                     <constraint firstAttribute="height" constant="60" id="eIb-Jc-gK5"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
@@ -131,6 +170,7 @@
                                                             <constraint firstItem="usJ-U2-v9a" firstAttribute="top" secondItem="LNs-d7-G3K" secondAttribute="top" constant="31" id="urf-Ey-43A"/>
                                                         </constraints>
                                                         <connections>
+                                                            <outlet property="statusBorder" destination="usJ-U2-v9a" id="B1x-K6-Xao"/>
                                                             <outlet property="statusImageView" destination="TJ9-mp-4c0" id="xBb-P1-cmF"/>
                                                         </connections>
                                                     </collectionReusableView>

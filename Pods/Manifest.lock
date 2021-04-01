@@ -358,6 +358,7 @@ PODS:
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
   - SkyFloatingLabelTextField (3.8.0)
+  - SmoothButton (0.0.3)
   - SnapKit (5.0.1)
   - SwiftyCam (4.0.0)
 
@@ -374,6 +375,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - MessageKit
   - SkyFloatingLabelTextField (~> 3.0)
+  - SmoothButton
   - SwiftyCam
 
 SPEC REPOS:
@@ -404,6 +406,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SkyFloatingLabelTextField
+    - SmoothButton
     - SnapKit
     - SwiftyCam
 
@@ -434,9 +437,10 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SmoothButton: 993d5d9c80828754adac8444586fb06f392d5298
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
 
-PODFILE CHECKSUM: a49f6e7f27237e35f59e4e62fae2a5e07d16135c
+PODFILE CHECKSUM: 7dc20101c9d5f0659f7e6e98c49ed3e121a4dd48
 
 COCOAPODS: 1.10.1

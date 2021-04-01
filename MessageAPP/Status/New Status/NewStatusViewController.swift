@@ -11,11 +11,16 @@ import AVFoundation
 import FirebaseStorage
 import FirebaseAuth
 import Firebase
+import SmoothButton
 class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let ref: DatabaseReference = Database.database().reference()
      private let db = Firestore.firestore()
     
+
+    @IBOutlet weak var sendTo: RoundedView!
+    
+    @IBOutlet weak var uploadButton: SmoothButton!
     @IBOutlet weak var barRight: UIView!
     @IBOutlet weak var barLeft: UIView!
     @IBOutlet weak var roundLeft: UIView!
@@ -24,7 +29,7 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        sendToConfig()
     }
     override func viewDidAppear(_ animated: Bool) {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
@@ -35,6 +40,14 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
             noCamera()
         }
         
+    }
+    func sendToConfig(){
+            guard let otherColor = GradientColors(rawValue: "kashmir") else {return}
+        uploadButton.gradientStartColor = otherColor.gradient.first
+        uploadButton.gradientEndColor = otherColor.gradient.second
+          
+
+       
     }
     func openCamera(){
         let pickerImage = UIImagePickerController()
@@ -72,9 +85,12 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
         dismiss(animated: true, completion: nil)
     }
     @IBAction func sendToButton(_ sender: Any) {
+        
+        self.uploadButton.isLoading = true
+        self.uploadButton.loadingString = ""
         self.saveFIRData(completionHandler: { success, _ in
             if success {
-                print("success")
+                self.uploadButton.isLoading = false
             }
         })
         
@@ -124,6 +140,7 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
                 "statusImage":  profileUrl.absoluteString ]
             
             userRef.addDocument(data: dict)
+            completionHandler(profileUrl, nil)
         }
     }
 }

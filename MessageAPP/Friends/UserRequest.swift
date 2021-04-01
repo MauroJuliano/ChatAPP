@@ -116,7 +116,6 @@ class UserRequest {
                                                                    image: itens.image,
                                                                    chatID: chatID ?? "", bio: itens.bio,timeStamp:"\(timeStamp!)" ?? "", lastMessage: lastMessage ?? ""
                                                                    ))
-                                    print(self.friendsStatus.count)
                                                               }
                             }
                         }

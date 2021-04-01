@@ -19,6 +19,7 @@ target 'MessageAPP' do
   pod 'JJFloatingActionButton'
   pod 'Kingfisher', '~> 5.0'
   pod 'SwiftyCam'
+  pod 'SmoothButton'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing

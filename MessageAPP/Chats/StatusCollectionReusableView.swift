@@ -13,6 +13,7 @@ protocol HeaderDelegate {
 }
 class StatusCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var statusImageView: UIImageView!
+    @IBOutlet weak var statusBorder: RoundedView!
     
     var delegate: HeaderDelegate?
     func selectCell(){
@@ -25,5 +26,15 @@ class StatusCollectionReusableView: UICollectionReusableView {
     func setup(user: Users){
         let url = URL(string: user.image)
         statusImageView.kf.setImage(with: url)
+        
+        guard let otherColor = GradientColors(rawValue: "kashmir") else {return}
+               let gradientLayer: CAGradientLayer = CAGradientLayer()
+                          
+              gradientLayer.colors = [otherColor.gradient.first.cgColor, otherColor.gradient.second.cgColor]
+              gradientLayer.locations = [0.0 , 1.0]
+              gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+              gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+              gradientLayer.frame = CGRect(x: 0.0, y: 0.0, width: statusBorder.frame.size.width, height: statusBorder.frame.size.height)
+               statusBorder.layer.insertSublayer(gradientLayer, below: statusBorder.layer.sublayers?.last)
     }
 }

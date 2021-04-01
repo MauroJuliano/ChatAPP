@@ -101,15 +101,21 @@ extension ChatTableViewDelegateDataSource : UICollectionViewDelegate, UICollecti
         cell.delegate = self
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+              if let vc = UIStoryboard(name: "Status", bundle: nil).instantiateInitialViewController() as? StatusViewController {
+               vc.modalPresentationStyle = .fullScreen
+               vc.friends = view?.statusArray[indexPath.row]
+               self.view?.present(vc, animated: true, completion: nil)
+     }
+    }
     func doSomething(){
-//status
         if let vc = UIStoryboard(name: "Status", bundle: nil).instantiateInitialViewController() as? StatusViewController {
                          vc.modalPresentationStyle = .fullScreen
-                         self.view?.present(vc, animated: true, completion: nil)
+            vc.user = view?.currentUser
+             self.view?.present(vc, animated: true, completion: nil)
                      }
-       
     }
+    
     func goToNewStatus(){
         if let vc = UIStoryboard(name: "NewStatus", bundle: nil).instantiateInitialViewController() as? NewStatusViewController {
                    vc.modalPresentationStyle = .fullScreen
