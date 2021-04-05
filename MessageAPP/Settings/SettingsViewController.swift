@@ -10,18 +10,23 @@ import UIKit
 import FirebaseAuth
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var settingsTableView: UITableView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var borderView: RoundedView!
+    @IBOutlet weak var bottomView: UIView!
     private var userRequest = UserRequest()
     private var controller: SettingsViewControllerDelegate?
     let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topView.roundCorners(.bottomLeft, radius: 100)
+        bottomView.roundCorners(.topRight, radius: 100)
+
         
         controller = SettingsViewControllerDelegate(view: self)
         
@@ -29,10 +34,6 @@ class SettingsViewController: UIViewController {
         settingsTableView.dataSource = controller
         
         setupUI()
-        //getUser()
-        
-
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.isHidden = true
@@ -63,6 +64,7 @@ class SettingsViewController: UIViewController {
     }
     
     func setupUI(){
+       
             guard let otherColor = GradientColors(rawValue: "shroomhaze") else {return}
             let gradientLayer: CAGradientLayer = CAGradientLayer()
             
@@ -70,9 +72,11 @@ class SettingsViewController: UIViewController {
             gradientLayer.locations = [0.0 , 1.0]
             gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
             gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        gradientLayer.frame = CGRect(x: 0.0, y: 0.0, width: topView.frame.size.width, height: topView.frame.size.height)
         
-        self.view.layer.insertSublayer(gradientLayer, below: self.view.layer.sublayers?.last)
+       topView.layer.insertSublayer(gradientLayer, below: topView.layer.sublayers?.last)
+        
+        detailView.backgroundColor = otherColor.gradient.second
         borderView.backgroundColor = otherColor.gradient.first
         
 //        let url = URL(string: "https://dwgyu36up6iuz.cloudfront.net/heru80fdn/image/upload/c_fill%2Cd_placeholder_thescene.jpg%2Cfl_progressive%2Cg_center%2Ch_360%2Cq_80%2Cw_640/v1524267747/glamour_celebrities-answer-what-was-the-lowest-amount-in-your-bank-account.jpg")

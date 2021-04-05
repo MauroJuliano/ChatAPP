@@ -134,7 +134,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
             gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
             gradientLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
             containerView.layer.insertSublayer(gradientLayer, below: containerView.layer.sublayers?.last)
-            containerView.roundCorners([.bottomLeft, .topLeft, .topRight], radius: 15)
+            containerView.roundCorners([.bottomLeft, .topLeft, .bottomRight], radius: 15)
         })
         
         

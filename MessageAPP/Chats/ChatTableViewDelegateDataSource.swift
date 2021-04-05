@@ -28,7 +28,6 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
                            return true
                   }
                 let nameToCompare = mensagem.name.folding(options: options, locale: nil)
-                print(nameToCompare.contains(searchText))
                 return nameToCompare.contains(searchText)
            })
         }
@@ -45,17 +44,22 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatTableViewCell
         
+        var myCustomSelection = UIView()
+        myCustomSelection.backgroundColor = UIColor(hexString: "DCD3FF")
+        cell.selectedBackgroundView = myCustomSelection
+        
         if filtered.count > 0 {
            let filteredPath = filtered[indexPath.row]
             cell.setup(user: filteredPath)
         }else if let indexpath = view?.chatArray[indexPath.row]{
              cell.setup(user: indexpath)
         }
+       
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+       // tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = MessageViewController()
         vc.title = "Chat"

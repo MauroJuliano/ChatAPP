@@ -13,6 +13,9 @@ class StatusViewController: UIViewController{
     @IBOutlet weak var statusCollectionView: UICollectionView!
 
 
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     private var statusRequest = StatusRequest()
     var controller: StatusViewControllerDelegate?
     var friends: Friends?
@@ -25,19 +28,17 @@ class StatusViewController: UIViewController{
         
         statusCollectionView.delegate = controller
         statusCollectionView.dataSource = controller
-        
-        //statusBar.delegate = self
+    
         getStatus()
-        //progressViewSetup()
-        //progressView()
-        // Do any additional setup after loading the view.
     }
     func getStatus(){
         
         if let friendsStatus = friends {
+            nameLabel.text = friendsStatus.name
             statusRequest.getStatus(ChildKey: friendsStatus.userID, completionHandler: { success, _ in
                 if success {
                     self.status.append(contentsOf: self.statusRequest.statusArray)
+                    self.pageControl.numberOfPages = self.status.count
                     self.statusCollectionView.reloadData()
                 }
                
@@ -45,6 +46,7 @@ class StatusViewController: UIViewController{
          )
             
         } else if let currentStatus = user {
+        nameLabel.text = currentStatus.name
         statusRequest.getStatus(ChildKey: currentStatus.userID, completionHandler: { success, _ in
             if success {
                 self.status.append(contentsOf: self.statusRequest.statusArray)
@@ -54,6 +56,7 @@ class StatusViewController: UIViewController{
                 )
         }
     }
+
     @IBAction func returnButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

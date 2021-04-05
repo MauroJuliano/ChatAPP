@@ -44,9 +44,9 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
 
         guard let otherColor = GradientColors(rawValue: "miaka") else {return}
         let tabColor = UIColor(hexString: "EEEEEE")
-       
+        
         tabController.tabBarBackgroundColor = tabColor
-        tabController.tabBarItemStrokeColor = otherColor.gradient.first
+        tabController.tabBarItemStrokeColor = UIColor(hexString: "F07BBB")
         
 //       let badge = BATabBarBadge(value: 20, badgeColor: .red)
 //       tabBarItem2.badge = badge
