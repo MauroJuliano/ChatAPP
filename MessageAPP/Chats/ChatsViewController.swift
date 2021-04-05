@@ -17,21 +17,27 @@ class ChatsViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var leftConstraints: NSLayoutConstraint!
+    
     private var userRequest: UserRequest?
+    private var statusRequest = StatusRequest()
+    
     var controller: ChatTableViewDelegateDataSource?
     let uid = Auth.auth().currentUser?.uid
+    var gameTimer: Timer?
     private var shouldCollapse = true
-    
     var messagesArray = [User]()
     var currentUser: Users?
     var chatArray = [Friends]()
     var statusArray = [Friends]()
+   
+    
     var buttonSearch: Bool {
         return shouldCollapse ? true : false
     }
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            removeOldStatus()
             leftConstraints.constant = CGFloat(300)
             
             controller = ChatTableViewDelegateDataSource(view: self)
@@ -44,6 +50,8 @@ class ChatsViewController: UIViewController {
             
             searchBar.delegate = controller
             
+            gameTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(removeOldStatus), userInfo: nil, repeats: true)
+            
             setupUI()
           
            
@@ -55,6 +63,13 @@ class ChatsViewController: UIViewController {
         getChats()
     }
     
+    @objc func removeOldStatus(){
+        statusRequest.getStatus(ChildKey: "", completionHandler: { success, _ in
+            if success {
+                print("removido")
+            }
+        })
+    }
     @objc func getChats() {
         userRequest?.getUsers(completionHandler: { success, _ in
             if success {

@@ -132,7 +132,7 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
     func saveImage(name: String, profileUrl: URL, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void) {
         if let currentUserD = Auth.auth().currentUser?.uid {
             let userRef = db.collection("stories")
-                
+            let statusActive = db.collection("users").document(currentUserD).updateData(["hasStatusActive": true])
             
             let dict: [String: Any] = [
                 "userID": currentUserD,

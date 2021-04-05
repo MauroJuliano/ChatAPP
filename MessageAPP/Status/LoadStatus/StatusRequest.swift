@@ -28,7 +28,9 @@ class StatusRequest {
     private var reference: CollectionReference?
     private let db = Firestore.firestore()
     var statusArray = [Status]()
-    
+    var allStatus = [Status]()
+    let currentDate = Date().timeIntervalSince1970
+    var userStatusDelete = [String]()
     func getStatus(ChildKey: String, completionHandler: @escaping (_ result: Bool,_ error: Bool?) -> Void){
         
         reference = db.collection("stories")
@@ -47,10 +49,33 @@ class StatusRequest {
                                                             timeStamp: timeStamp,
                                                             user: userID))
                         }
+                        
+                        if ChildKey == "" {
+                            let statusDate = timeStamp + 86400
+                            if statusDate <= self.currentDate {
+                                if self.userStatusDelete.contains(userID) {} else {
+                                    self.userStatusDelete.append(userID)
+                                }
+                                let statusToDelete = self.db.collection("stories").document(document.documentID)
+                                statusToDelete.delete()
+                            
+                            }  
+                        }
+                        self.allStatus.append(Status(image: statusImage,
+                                                      timeStamp: timeStamp,
+                                                      user: userID))
+                     
                     }
                 }
                 completionHandler(true,nil)
             }
         }
     }
+    
+    func removeStatus(){
+        for itens in userStatusDelete {
+           // if allStatus.contains({ ($0.u)})
+        }
+    }
+    
 }

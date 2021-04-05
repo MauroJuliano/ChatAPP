@@ -31,6 +31,7 @@ class StatusViewController: UIViewController{
     
         getStatus()
     }
+    
     func getStatus(){
         
         if let friendsStatus = friends {
@@ -50,11 +51,13 @@ class StatusViewController: UIViewController{
         statusRequest.getStatus(ChildKey: currentStatus.userID, completionHandler: { success, _ in
             if success {
                 self.status.append(contentsOf: self.statusRequest.statusArray)
+                 self.statusRequest.removeStatus()
                  self.statusCollectionView.reloadData()
                            }
                    }
                 )
         }
+       
     }
 
     @IBAction func returnButton(_ sender: Any) {
