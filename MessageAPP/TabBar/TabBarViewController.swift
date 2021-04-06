@@ -36,39 +36,30 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
 
         //set icons
         let tabBarItem = BATabBarItem(image: UIImage(named: "icons8-chat-room-50")!, selectedImage:  UIImage(named: "icons8-chat-room-50")!)
-        
-        let tabBarItem2 = BATabBarItem(image: UIImage(named: "icons8-create-64")!, selectedImage:  UIImage(named: "icons8-create-64")!)
-        
+        //icons8-chat-room-50
         let tabBarItem3 = BATabBarItem(image: UIImage(named: "icons8-settings-50")!, selectedImage:  UIImage(named: "icons8-settings-50")!)
+        //icons8-settings-50
         
-
         guard let otherColor = GradientColors(rawValue: "miaka") else {return}
         let tabColor = UIColor(hexString: "EEEEEE")
-        
+
         tabController.tabBarBackgroundColor = tabColor
-        tabController.tabBarItemStrokeColor = UIColor(hexString: "F07BBB")
-        
-//       let badge = BATabBarBadge(value: 20, badgeColor: .red)
-//       tabBarItem2.badge = badge
+        tabController.tabBarItemStrokeColor = UIColor(hexString: "89B6E7")
         
         //set color icons
-        tabBarItem.tintColor = otherColor.gradient.second
-        tabBarItem2.tintColor = otherColor.gradient.second
-        tabBarItem3.tintColor = otherColor.gradient.second
+        tabBarItem.tintColor = UIColor.red
+        tabBarItem3.tintColor = .red
         
         //inicialize controllers
         
-    guard let vc4 = UIStoryboard(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController") as? UINavigationController else {return}
+    guard let vc1 = UIStoryboard(name: "Chats", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController") as? UINavigationController else {return}
         
     guard let vc2 = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsNavigationController") as? UINavigationController else {return}
-        
-        let vc3 = UIViewController()
-       vc3.view.backgroundColor = .red
-        
+
         tabController.delegate = self
-        tabController.viewControllers = [vc4,vc2]
+        tabController.viewControllers = [vc1,vc2]
         tabController.tabBarItems = [tabBarItem,tabBarItem3]
-        tabController.initialViewController = vc4
+        tabController.initialViewController = vc1
         self.view.addSubview(tabController.view)
     }
         // Do any additional setup after loading the view.

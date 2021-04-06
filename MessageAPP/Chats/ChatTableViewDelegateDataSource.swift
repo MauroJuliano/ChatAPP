@@ -59,8 +59,6 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // tableView.deselectRow(at: indexPath, animated: true)
-        
         let vc = MessageViewController()
         vc.title = "Chat"
         
@@ -70,6 +68,7 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
         view?.navigationController?.pushViewController(vc, animated: true)
         //show messages
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count >= 3 {
             filterArray(searchIn: searchText)
@@ -100,9 +99,15 @@ extension ChatTableViewDelegateDataSource : UICollectionViewDelegate, UICollecti
         
         if let index = view?.currentUser {
             cell.setup(user: index)
+            
+            cell.buttonTapped = {
+                guard index.hasStatusActive == true else {
+                    self.goToNewStatus()
+                    return
+                }
+                self.doSomething()
+            }
         }
-        cell.selectCell()
-        cell.delegate = self
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -117,7 +122,7 @@ extension ChatTableViewDelegateDataSource : UICollectionViewDelegate, UICollecti
                          vc.modalPresentationStyle = .fullScreen
             vc.user = view?.currentUser
              self.view?.present(vc, animated: true, completion: nil)
-                     }
+           }
     }
     
     func goToNewStatus(){

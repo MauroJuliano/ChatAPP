@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftMessages
+import Network
 class ChatsViewController: UIViewController {
 
 
@@ -20,7 +22,7 @@ class ChatsViewController: UIViewController {
     
     private var userRequest: UserRequest?
     private var statusRequest = StatusRequest()
-    
+    let monitor = NWPathMonitor()
     var controller: ChatTableViewDelegateDataSource?
     let uid = Auth.auth().currentUser?.uid
     var gameTimer: Timer?
@@ -53,7 +55,7 @@ class ChatsViewController: UIViewController {
             gameTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(removeOldStatus), userInfo: nil, repeats: true)
             
             setupUI()
-          
+            checkConnection()
            
         }
     
@@ -69,6 +71,36 @@ class ChatsViewController: UIViewController {
                 print("removido")
             }
         })
+    }
+    func checkConnection(){
+        monitor.pathUpdateHandler = { path in
+            DispatchQueue.main.async {
+                guard path.status == .satisfied else {
+                    self.alertCardConfig(title: "500 ERROR", message: "Check network connection", theme: .warning)
+                    return
+                }
+                self.alertCardConfig(title: "Connected", message: "you are ready to chat", theme: .success)
+            }}
+        let queue = DispatchQueue(label:"Monitor")
+        monitor.start(queue: queue)
+        
+    }
+    func alertCardConfig(title: String, message: String, theme: Theme) {
+        let view = MessageView.viewFromNib(layout: .cardView)
+        view.configureTheme(theme)
+        view.configureDropShadow()
+        
+        view.configureContent(title: title, body: message)
+        view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        view.button?.isHidden = true
+        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+        
+        //set config card
+        
+        var config = SwiftMessages.Config()
+        config.duration = .seconds(seconds: 5)
+        SwiftMessages.show(config: config, view: view)
+        
     }
     @objc func getChats() {
         userRequest?.getUsers(completionHandler: { success, _ in

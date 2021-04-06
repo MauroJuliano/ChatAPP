@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class StatusViewController: UIViewController{
 
     @IBOutlet weak var statusCollectionView: UICollectionView!
@@ -15,6 +15,8 @@ class StatusViewController: UIViewController{
 
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     private var statusRequest = StatusRequest()
     var controller: StatusViewControllerDelegate?
@@ -30,16 +32,29 @@ class StatusViewController: UIViewController{
         statusCollectionView.dataSource = controller
     
         getStatus()
+        //view.backgroundColor = .red
+        setupUI()
+    }
+    
+    func setupUI(){
+        guard let otherColor = GradientColors(rawValue: "shroomhaze") else {return}
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        gradientLayer.colors = [otherColor.gradient.first.cgColor, otherColor.gradient.second.cgColor]
+        gradientLayer.locations = [0.0 , 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = CGRect(x: 0.0, y: 0.0, width: viewBack.frame.size.width, height: viewBack.frame.size.height)
+        viewBack.layer.insertSublayer(gradientLayer, below: viewBack.layer.sublayers?.last)
     }
     
     func getStatus(){
         
         if let friendsStatus = friends {
-            nameLabel.text = friendsStatus.name
             statusRequest.getStatus(ChildKey: friendsStatus.userID, completionHandler: { success, _ in
                 if success {
                     self.status.append(contentsOf: self.statusRequest.statusArray)
-                    self.pageControl.numberOfPages = self.status.count
+                    self.setInfoStatus(image: friendsStatus.image, arrayCount: self.status.count)
                     self.statusCollectionView.reloadData()
                 }
                
@@ -47,17 +62,26 @@ class StatusViewController: UIViewController{
          )
             
         } else if let currentStatus = user {
-        nameLabel.text = currentStatus.name
         statusRequest.getStatus(ChildKey: currentStatus.userID, completionHandler: { success, _ in
             if success {
                 self.status.append(contentsOf: self.statusRequest.statusArray)
-                 self.statusRequest.removeStatus()
-                 self.statusCollectionView.reloadData()
-                           }
-                   }
-                )
+                self.setInfoStatus(image: currentStatus.image, arrayCount: self.status.count)
+                self.statusCollectionView.reloadData()
+                  }
+             }
+           )
         }
        
+    }
+    
+    func setInfoStatus(image: String, arrayCount: Int){
+        let url = URL(string:image)
+        userImage.kf.setImage(with: url)
+        
+        if arrayCount == 1 {
+            statusCollectionView.isScrollEnabled = false
+        }
+        self.pageControl.numberOfPages = arrayCount
     }
 
     @IBAction func returnButton(_ sender: Any) {

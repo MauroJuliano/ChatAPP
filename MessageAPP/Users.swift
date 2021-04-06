@@ -14,14 +14,23 @@ struct Users: Decodable, Equatable {
     let name: String
     let image: String
     let bio: String
+    let hasStatusActive: Bool
     
-    enum CodingKeys: String, CodingKey {
-        case userID = "userID"
-        case name = "name"
-        case email = "email"
-        case image = "image"
-        case bio = "Bio"
+    init(userID: String, email: String, name: String, image: String, bio: String, hasStatusActive: Bool){
+        self.userID = userID
+        self.email = email
+        self.name = name
+        self.image = image
+        self.bio = bio
+        self.hasStatusActive = hasStatusActive
     }
+//    enum CodingKeys: String, CodingKey {
+//        case userID = "userID"
+//        case name = "name"
+//        case email = "email"
+//        case image = "image"
+//        case bio = "Bio"
+//    }
 }
 
 struct Contatos: Decodable, Equatable {

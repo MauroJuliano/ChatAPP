@@ -43,6 +43,9 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     var image = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let user = chatIdSelected?.name {
+            self.title = user
+        }
         userRequest.getUsers(completionHandler: { success, _ in
             if success {
                 
@@ -55,6 +58,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
             }
         })
         navigationController?.navigationBar.tintColor = .black
+        
         updateMessageStyle()
         self.navigationController?.navigationBar.isHidden = false
         
@@ -121,9 +125,11 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     }
     
     private func updateMessageStyle(){
+        // pinky and aubergine
+        // stellar and dirtyFog
         
         guard let currentColor = GradientColors(rawValue: "pinky") else {return}
-        guard let otherColor = GradientColors(rawValue: "aubergine") else {return}
+        guard let otherColor = GradientColors(rawValue: "dirtyFog") else {return}
   
         messagesCollectionView.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper")!)
         currentUserMessageStyle = MessageStyle.custom({ (containerView) in

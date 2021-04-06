@@ -15,6 +15,8 @@ class StatusCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var statusImageView: UIImageView!
     @IBOutlet weak var statusBorder: RoundedView!
     
+    var buttonTapped: (() -> ()) = {}
+    
     var delegate: HeaderDelegate?
     func selectCell(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
@@ -22,6 +24,9 @@ class StatusCollectionReusableView: UICollectionReusableView {
     }
     @objc func headerViewTapped(){
         delegate?.doSomething()
+    }
+    @IBAction func cellTapped(_ sender: Any) {
+        buttonTapped()
     }
     func setup(user: Users){
         let url = URL(string: user.image)

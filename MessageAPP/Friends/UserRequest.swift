@@ -48,13 +48,13 @@ class UserRequest {
                                               email: email,
                                               name: name,
                                               image: image,
-                                              bio: bio))
+                                              bio: bio, hasStatusActive: hasStatusActive ?? false))
                    
                     }
                     self.users.append(Users(userID: userID,
                                                        email: email,
                                                        name: name, image: image,
-                                                       bio: bio))
+                                                       bio: bio, hasStatusActive: hasStatusActive ?? false))
                    // completionHandler(true,nil)
              }
          }

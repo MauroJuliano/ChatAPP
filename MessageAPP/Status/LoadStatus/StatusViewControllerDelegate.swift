@@ -26,7 +26,6 @@ class StatusViewControllerDelegate: NSObject, UICollectionViewDelegate, UICollec
         if let index = view?.status[indexPath.row]{
             cell.setup(status: index)
         }
-        
         cell.buttonTapped = {
             self.scrollToIndex(index: indexPath, left: false)
         }

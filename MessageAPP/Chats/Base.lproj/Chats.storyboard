@@ -127,16 +127,26 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHg-ZP-Uzs" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
                                                                         <rect key="frame" x="1" y="1" width="58" height="58"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="he" translatesAutoresizingMaskIntoConstraints="NO" id="TJ9-mp-4c0">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TJ9-mp-4c0">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
                                                                             </imageView>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0f-8u-yVN">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                                                <connections>
+                                                                                    <action selector="cellTapped:" destination="LNs-d7-G3K" eventType="touchUpInside" id="x6S-Re-ced"/>
+                                                                                </connections>
+                                                                            </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
+                                                                            <constraint firstItem="n0f-8u-yVN" firstAttribute="leading" secondItem="iHg-ZP-Uzs" secondAttribute="leading" id="FHs-jy-TTJ"/>
                                                                             <constraint firstItem="TJ9-mp-4c0" firstAttribute="leading" secondItem="iHg-ZP-Uzs" secondAttribute="leading" id="JRe-T9-73u"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="n0f-8u-yVN" secondAttribute="trailing" id="LP8-1N-lZF"/>
+                                                                            <constraint firstItem="n0f-8u-yVN" firstAttribute="top" secondItem="iHg-ZP-Uzs" secondAttribute="top" id="QOT-sh-khQ"/>
                                                                             <constraint firstAttribute="trailing" secondItem="TJ9-mp-4c0" secondAttribute="trailing" id="VMF-HA-8Yk"/>
                                                                             <constraint firstAttribute="bottom" secondItem="TJ9-mp-4c0" secondAttribute="bottom" id="Xjl-Ph-Uxt"/>
                                                                             <constraint firstItem="TJ9-mp-4c0" firstAttribute="top" secondItem="iHg-ZP-Uzs" secondAttribute="top" id="fH7-bQ-fk8"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="n0f-8u-yVN" secondAttribute="bottom" id="pJ3-8F-8WN"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -423,7 +433,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="he" width="3376" height="6000"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
