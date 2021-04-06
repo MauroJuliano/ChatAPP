@@ -20,8 +20,14 @@ class Status {
         self.timeStamp = timeStamp
         self.user = user
     }
+}
+
+class StatusToDelete {
+    var user: String
     
-    
+    init(user: String){
+        self.user = user
+    }
 }
 
 class StatusRequest {
@@ -29,6 +35,7 @@ class StatusRequest {
     private let db = Firestore.firestore()
     var statusArray = [Status]()
     var allStatus = [Status]()
+    var statusDeleted = [StatusToDelete]()
     let currentDate = Date().timeIntervalSince1970
     var userStatusDelete = [String]()
     func getStatus(ChildKey: String, completionHandler: @escaping (_ result: Bool,_ error: Bool?) -> Void){
@@ -53,28 +60,33 @@ class StatusRequest {
                         if ChildKey == "" {
                             let statusDate = timeStamp + 86400
                             if statusDate <= self.currentDate {
-                                if self.userStatusDelete.contains(userID) {} else {
-                                    self.userStatusDelete.append(userID)
-                                }
+                                
+                                self.statusDeleted.append(StatusToDelete(user: userID))
                                 let statusToDelete = self.db.collection("stories").document(document.documentID)
                                 statusToDelete.delete()
-                            
-                            }  
+                            }else{
+                                if self.allStatus.contains(where: { ($0.image == statusImage)}) {} else {
+                                    self.allStatus.append(Status(image: statusImage,
+                                    timeStamp: timeStamp,
+                                    user: userID))
+                                }
+                                
+                            }
                         }
-                        self.allStatus.append(Status(image: statusImage,
-                                                      timeStamp: timeStamp,
-                                                      user: userID))
-                     
                     }
                 }
+                self.removeStatus()
                 completionHandler(true,nil)
             }
         }
     }
     
     func removeStatus(){
-        for itens in userStatusDelete {
-           // if allStatus.contains({ ($0.u)})
+
+        for itens in statusDeleted {
+            if allStatus.contains(where: { $0.user == itens.user}) {} else {
+                let statusToDelete = self.db.collection("users").document(itens.user).updateData(["hasStatusActive": false])
+            }
         }
     }
     

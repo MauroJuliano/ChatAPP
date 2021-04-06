@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SmoothButton
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var detailView: UIView!
@@ -18,6 +19,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var borderView: RoundedView!
     @IBOutlet weak var bottomView: UIView!
+    
+    @IBOutlet weak var powerButton: SmoothButton!
     private var userRequest = UserRequest()
     private var controller: SettingsViewControllerDelegate?
     let uid = Auth.auth().currentUser?.uid
@@ -26,7 +29,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         topView.roundCorners(.bottomLeft, radius: 100)
         bottomView.roundCorners(.topRight, radius: 100)
-
+        
         
         controller = SettingsViewControllerDelegate(view: self)
         

@@ -20,6 +20,7 @@ target 'MessageAPP' do
   pod 'Kingfisher', '~> 5.0'
   pod 'SwiftyCam'
   pod 'SmoothButton'
+  pod'SwiftMessages'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing
