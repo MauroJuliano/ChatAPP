@@ -69,12 +69,34 @@
                                                                 <constraint firstAttribute="width" constant="399" id="K6S-D3-GRF"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hns-Bs-YBW">
+                                                            <rect key="frame" x="192" y="71" width="212" height="625"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <connections>
+                                                                <action selector="leffButton:" destination="kbv-OA-RSm" eventType="touchUpInside" id="PX2-j5-Izt"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8s-eA-6Vk">
+                                                            <rect key="frame" x="-9" y="71" width="212" height="625"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <connections>
+                                                                <action selector="rightButton:" destination="kbv-OA-RSm" eventType="touchUpInside" id="aSR-YZ-ZTw"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="L8s-eA-6Vk" firstAttribute="leading" secondItem="gn0-51-vfZ" secondAttribute="leading" constant="-9" id="5v2-zM-O3v"/>
+                                                        <constraint firstAttribute="trailing" secondItem="L8s-eA-6Vk" secondAttribute="trailing" constant="196" id="Ho1-yX-aK9"/>
+                                                        <constraint firstItem="hns-Bs-YBW" firstAttribute="top" secondItem="gn0-51-vfZ" secondAttribute="top" constant="71" id="IgM-mU-6o9"/>
                                                         <constraint firstItem="ACT-NW-HC6" firstAttribute="top" secondItem="gn0-51-vfZ" secondAttribute="top" id="WB4-OG-wgv"/>
+                                                        <constraint firstAttribute="bottom" secondItem="L8s-eA-6Vk" secondAttribute="bottom" constant="-9" id="WV6-iz-FWy"/>
                                                         <constraint firstAttribute="trailing" secondItem="ACT-NW-HC6" secondAttribute="trailing" id="XlH-TE-mJJ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hns-Bs-YBW" secondAttribute="bottom" constant="-9" id="aUL-32-HlE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hns-Bs-YBW" secondAttribute="trailing" constant="-5" id="ltO-Tj-CHq"/>
+                                                        <constraint firstItem="hns-Bs-YBW" firstAttribute="leading" secondItem="gn0-51-vfZ" secondAttribute="leading" constant="192" id="oaS-1J-BT0"/>
                                                         <constraint firstItem="ACT-NW-HC6" firstAttribute="leading" secondItem="gn0-51-vfZ" secondAttribute="leading" id="oaT-Q4-Hcj"/>
+                                                        <constraint firstItem="L8s-eA-6Vk" firstAttribute="top" secondItem="gn0-51-vfZ" secondAttribute="top" constant="71" id="rTa-lg-qHJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="ACT-NW-HC6" secondAttribute="bottom" id="uTV-D9-jbN"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>

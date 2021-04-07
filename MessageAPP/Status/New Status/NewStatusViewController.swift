@@ -20,6 +20,8 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
 
     @IBOutlet weak var sendTo: RoundedView!
     
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var uploadButton: SmoothButton!
     @IBOutlet weak var barRight: UIView!
     @IBOutlet weak var barLeft: UIView!
@@ -29,6 +31,8 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        blurView.layer.cornerRadius = 25
+        blurView.clipsToBounds = true
         sendToConfig()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -42,10 +46,19 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     func sendToConfig(){
-            guard let otherColor = GradientColors(rawValue: "kashmir") else {return}
+            guard let otherColor = GradientColors(rawValue: "dirtyFog") else {return}
         uploadButton.gradientStartColor = otherColor.gradient.first
         uploadButton.gradientEndColor = otherColor.gradient.second
-          
+        
+          guard let gradientColor = GradientColors(rawValue: "shroomhaze") else {return}
+          let gradientLayer: CAGradientLayer = CAGradientLayer()
+
+          gradientLayer.colors = [gradientColor.gradient.first.cgColor, gradientColor.gradient.second.cgColor]
+          gradientLayer.locations = [0.0 , 1.0]
+          gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+          gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = CGRect(x: 0.0, y: 0.0, width: viewBack.frame.size.width, height: viewBack.frame.size.height)
+        viewBack.layer.insertSublayer(gradientLayer, below: viewBack.layer.sublayers?.last)
 
        
     }

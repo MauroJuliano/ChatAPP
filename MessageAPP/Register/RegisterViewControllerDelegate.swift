@@ -52,7 +52,8 @@ class RegisterViewControllerDelegate {
         let dict: [String: Any] = [
             "name": name,
             "email": email,
-            "userID": uid
+            "userID": uid,
+            "imageProfile": "https://www.pngix.com/pngfile/middle/660-6602815_usurio-ville-de-saint-etienne-hd-png-download.png"
         ]
         let userRef = db.collection("users")
         if let user = uid {

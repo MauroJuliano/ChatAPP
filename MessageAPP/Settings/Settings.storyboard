@@ -112,13 +112,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mauro Juliano" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22G-T4-gAG">
-                                                    <rect key="frame" x="101" y="281" width="213" height="32.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                                                    <rect key="frame" x="20" y="281" width="374" height="28.5"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mauro@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiW-Wc-SrT">
-                                                    <rect key="frame" x="110" y="330" width="194" height="20.5"/>
+                                                    <rect key="frame" x="110" y="325.5" width="194" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -166,19 +166,19 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="NiW-Wc-SrT" firstAttribute="top" secondItem="22G-T4-gAG" secondAttribute="bottom" constant="16.5" id="13A-rj-wI8"/>
-                                                <constraint firstItem="22G-T4-gAG" firstAttribute="leading" secondItem="ubD-HY-U08" secondAttribute="leading" constant="101" id="3k4-hV-n0s"/>
+                                                <constraint firstItem="22G-T4-gAG" firstAttribute="top" secondItem="Jh4-0m-s5J" secondAttribute="bottom" constant="30" id="4L8-1B-QMN"/>
                                                 <constraint firstItem="5w0-dU-S9T" firstAttribute="top" secondItem="ubD-HY-U08" secondAttribute="top" constant="70" id="5hp-XH-ksh"/>
                                                 <constraint firstAttribute="trailing" secondItem="6Mt-b4-tFQ" secondAttribute="trailing" constant="-9" id="6bg-xc-uWM"/>
                                                 <constraint firstItem="Jh4-0m-s5J" firstAttribute="top" secondItem="ubD-HY-U08" secondAttribute="top" constant="71" id="DoS-7C-t3r"/>
                                                 <constraint firstAttribute="trailing" secondItem="5w0-dU-S9T" secondAttribute="trailing" constant="22" id="Kk1-gH-B1t"/>
                                                 <constraint firstAttribute="bottom" secondItem="6Mt-b4-tFQ" secondAttribute="bottom" id="MTn-wR-YbC"/>
-                                                <constraint firstAttribute="trailing" secondItem="22G-T4-gAG" secondAttribute="trailing" constant="100" id="Osb-y8-2Vn"/>
-                                                <constraint firstItem="22G-T4-gAG" firstAttribute="top" secondItem="Jh4-0m-s5J" secondAttribute="bottom" constant="30" id="R4a-gz-qJ6"/>
                                                 <constraint firstItem="6Mt-b4-tFQ" firstAttribute="top" secondItem="ubD-HY-U08" secondAttribute="top" constant="-36" id="S2c-sc-ONU"/>
+                                                <constraint firstItem="22G-T4-gAG" firstAttribute="leading" secondItem="ubD-HY-U08" secondAttribute="leading" constant="20" id="Y7f-GA-JN9"/>
                                                 <constraint firstItem="NiW-Wc-SrT" firstAttribute="leading" secondItem="ubD-HY-U08" secondAttribute="leading" constant="110" id="bW1-D7-8eQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="NiW-Wc-SrT" secondAttribute="trailing" constant="110" id="jPZ-te-Pg3"/>
+                                                <constraint firstItem="NiW-Wc-SrT" firstAttribute="top" secondItem="22G-T4-gAG" secondAttribute="bottom" constant="16" id="qsL-ds-P3a"/>
                                                 <constraint firstItem="Jh4-0m-s5J" firstAttribute="leading" secondItem="ubD-HY-U08" secondAttribute="leading" constant="117" id="swN-Sg-Mvx"/>
+                                                <constraint firstAttribute="trailing" secondItem="22G-T4-gAG" secondAttribute="trailing" constant="20" id="wxr-fR-l0Y"/>
                                                 <constraint firstItem="6Mt-b4-tFQ" firstAttribute="leading" secondItem="ubD-HY-U08" secondAttribute="leading" constant="-8" id="yMx-pz-bcd"/>
                                             </constraints>
                                         </view>

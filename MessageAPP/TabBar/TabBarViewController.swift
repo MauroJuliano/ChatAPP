@@ -35,16 +35,16 @@ class TabBarViewController: UIViewController, BATabBarControllerDelegate {
         navigationController?.navigationBar.isHidden = true
 
         //set icons
-        let tabBarItem = BATabBarItem(image: UIImage(named: "icons8-chat-room-50")!, selectedImage:  UIImage(named: "icons8-chat-room-50")!)
+        let tabBarItem = BATabBarItem(image: UIImage(named: "icons8-chat-room-100")!, selectedImage:  UIImage(named: "chatSelected")!)
         //icons8-chat-room-50
-        let tabBarItem3 = BATabBarItem(image: UIImage(named: "icons8-settings-50")!, selectedImage:  UIImage(named: "icons8-settings-50")!)
+        let tabBarItem3 = BATabBarItem(image: UIImage(named: "icons8-settings-50")!, selectedImage:  UIImage(named: "settingsSelected")!)
         //icons8-settings-50
         
         guard let otherColor = GradientColors(rawValue: "miaka") else {return}
         let tabColor = UIColor(hexString: "EEEEEE")
 
         tabController.tabBarBackgroundColor = tabColor
-        tabController.tabBarItemStrokeColor = UIColor(hexString: "89B6E7")
+        tabController.tabBarItemStrokeColor = UIColor(hexString: "B5338A")
         
         //set color icons
         tabBarItem.tintColor = UIColor.red

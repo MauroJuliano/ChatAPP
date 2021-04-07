@@ -220,6 +220,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - Comets (0.3.1)
   - Firebase (7.9.0):
     - Firebase/Core (= 7.9.0)
   - Firebase/Analytics (7.9.0):
@@ -367,6 +368,7 @@ PODS:
 
 DEPENDENCIES:
   - BATabBarController (~> 2.0.0)
+  - Comets
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
@@ -387,6 +389,7 @@ SPEC REPOS:
     - abseil
     - BATabBarController
     - BoringSSL-GRPC
+    - Comets
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -419,6 +422,7 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BATabBarController: 7f50519b3743b4e779c71a8e147ac9e8c50e0c7d
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  Comets: ff75eb4658d612af66073bf9fcf6e8bef274817b
   Firebase: d8bd6bd34b4c7ed57bfdd056c66ff5adcdde53ab
   FirebaseAnalytics: 31b1269830dfe16687db3c60b76082c12bd6d527
   FirebaseAuth: 20625f04fdd213995249a82375b3dab39b1c136c
@@ -447,6 +451,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 77b847d1405f99046ffbd0d856bc7d73e6892686
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
 
-PODFILE CHECKSUM: 1bea666c652da67d049fd67f11fc5f5f2f162e93
+PODFILE CHECKSUM: a967f082c208a8bee8cf63e495699b626c30098a
 
 COCOAPODS: 1.10.1

@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var borderView: RoundedView!
     @IBOutlet weak var bottomView: UIView!
-    
+    var users: [Users] = []
     @IBOutlet weak var powerButton: SmoothButton!
     private var userRequest = UserRequest()
     private var controller: SettingsViewControllerDelegate?
@@ -51,7 +51,7 @@ class SettingsViewController: UIViewController {
                 for itens in self.userRequest.users {
                     if self.uid == itens.userID {
                         self.setupUser(url: itens.image, name: itens.name, email: itens.email)
-                        
+                        self.users.append(Users(userID: itens.userID, email: itens.email, name: itens.name, image: itens.image, bio: itens.bio, hasStatusActive: itens.hasStatusActive))
                     }
                 }
             }
@@ -64,6 +64,8 @@ class SettingsViewController: UIViewController {
         
         nameLabel.text = name
         emailLabel.text = email
+        
+      
     }
     
     func setupUI(){

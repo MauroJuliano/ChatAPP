@@ -21,6 +21,8 @@ target 'MessageAPP' do
   pod 'SwiftyCam'
   pod 'SmoothButton'
   pod'SwiftMessages'
+  pod 'Comets'
+  
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing

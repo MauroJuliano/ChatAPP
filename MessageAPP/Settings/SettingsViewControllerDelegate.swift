@@ -37,6 +37,8 @@ class SettingsViewControllerDelegate: NSObject, UITableViewDataSource, UITableVi
         
         if cell.settingsLabel.text == "Edit Profile" {
             if let vc = UIStoryboard(name: "EditProfile", bundle: nil).instantiateInitialViewController() as? EditProfilerViewController {
+                vc.users.append(contentsOf: self.view!.users)
+                
                 self.view?.navigationController?.pushViewController(vc, animated: true)
             }
         }

@@ -65,7 +65,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-CJ-Hew" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
                                                                                 <rect key="frame" x="1" y="1" width="58" height="58"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="she" translatesAutoresizingMaskIntoConstraints="NO" id="GNs-qq-VFg">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GNs-qq-VFg">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
                                                                                     </imageView>
                                                                                 </subviews>
@@ -436,6 +436,5 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="she" width="3984" height="5976"/>
     </resources>
 </document>

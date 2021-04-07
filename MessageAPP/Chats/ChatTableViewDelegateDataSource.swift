@@ -34,6 +34,16 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
        
         view?.messageTableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let actionEdit = UIContextualAction(style: .normal, title: "Archive", handler: { (action,view,completionHandler) in
+            completionHandler(true)
+        })
+        actionEdit.image = UIImage(systemName: "archivebox.fill")
+        
+        let configuratin = UISwipeActionsConfiguration(actions: [actionEdit])
+        return configuratin
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filtered.count > 0 {
             return filtered.count

@@ -42,7 +42,7 @@ class ChatTableViewCell: UITableViewCell {
             timeMessageLabel.text = "Yesterday"
         }else{
             if epocTime < dateOutrange {
-                dateFormatter.dateFormat = "dd/MM/yyyy"
+                dateFormatter.dateFormat = "dd/MM/yy"
                 let daysAgo = dateFormatter.string(from: epocTime)
                  timeMessageLabel.text = daysAgo
             }else{
