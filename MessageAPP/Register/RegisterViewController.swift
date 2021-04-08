@@ -66,11 +66,10 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButton(_ sender: Any) {
         controller?.createUser(completionHandler: {success, _ in
             if success {
-                if let vc = UIStoryboard(name: "Chats", bundle: nil).instantiateInitialViewController() as? ChatsViewController {
-                //self.navigationController?.pushViewController(vc, animated: true)
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-             }
+                 if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabBarViewController {
+                         vc.modalPresentationStyle = .fullScreen
+                          self.present(vc, animated: true, completion: nil)
+                       }
             }
         })
     }

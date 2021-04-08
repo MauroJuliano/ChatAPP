@@ -22,7 +22,7 @@ target 'MessageAPP' do
   pod 'SmoothButton'
   pod'SwiftMessages'
   pod 'Comets'
-  
+  pod 'SkeletonView'
   target 'MessageAPPTests' do
     inherit! :search_paths
     # Pods for testing

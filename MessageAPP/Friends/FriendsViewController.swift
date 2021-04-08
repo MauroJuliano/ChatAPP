@@ -115,11 +115,12 @@ class FriendsViewController: UIViewController {
     
     func saveTo(userID: String){
             //create a new friend
+        let date = Date().timeIntervalSince1970
         let othertUser = db.collection("users").document(userID).collection("contatos").document(self.uid!)
-        othertUser.setData(["userID": "\(self.uid!)"])
+        othertUser.setData(["userID": "\(self.uid!)", "timeStamp": date])
         
         let currenttUser = db.collection("users").document(self.uid!).collection("contatos").document(userID)
-        currenttUser.setData(["userID": userID])
+        currenttUser.setData(["userID": userID, "timeStamp": date])
         
         getDataFromStorage()
         }

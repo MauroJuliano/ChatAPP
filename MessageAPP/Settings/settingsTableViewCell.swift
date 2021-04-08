@@ -12,6 +12,8 @@ class settingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var cellView: RoundedView!
+    @IBOutlet weak var imageIcon: UIImageView!
+    @IBOutlet weak var roundedImage: RoundedView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

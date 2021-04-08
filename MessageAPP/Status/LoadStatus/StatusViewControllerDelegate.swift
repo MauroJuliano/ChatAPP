@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SkeletonView
 class StatusViewControllerDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     var view: StatusViewController?
     var currentRow = 0

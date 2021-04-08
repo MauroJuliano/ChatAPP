@@ -52,8 +52,8 @@ class RegisterViewControllerDelegate {
         let dict: [String: Any] = [
             "name": name,
             "email": email,
-            "userID": uid,
-            "imageProfile": "https://www.pngix.com/pngfile/middle/660-6602815_usurio-ville-de-saint-etienne-hd-png-download.png"
+            "userID": uid
+            
         ]
         let userRef = db.collection("users")
         if let user = uid {
@@ -61,7 +61,9 @@ class RegisterViewControllerDelegate {
                 
                 "name": name,
                 "email": email,
-                "userID": user
+                "userID": user,
+                "imageProfile": "https://www.pngix.com/pngfile/middle/660-6602815_usurio-ville-de-saint-etienne-hd-png-download.png",
+                "Bio": ""
             ])
     
             completionHandler(true,nil)

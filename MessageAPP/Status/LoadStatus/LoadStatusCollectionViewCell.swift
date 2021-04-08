@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-
+import SkeletonView
 protocol ButtonCollectionView {
     func didButtonPressed()
 }

@@ -30,6 +30,8 @@ class SettingsViewController: UIViewController {
         topView.roundCorners(.bottomLeft, radius: 100)
         bottomView.roundCorners(.topRight, radius: 100)
         
+        profileImage.isSkeletonable = true
+        profileImage.showAnimatedSkeleton()
         
         controller = SettingsViewControllerDelegate(view: self)
         
@@ -61,7 +63,7 @@ class SettingsViewController: UIViewController {
     func setupUser(url: String, name: String, email: String){
         let url = URL(string: url)
         profileImage.kf.setImage(with: url)
-        
+        profileImage.hideSkeleton()
         nameLabel.text = name
         emailLabel.text = email
         

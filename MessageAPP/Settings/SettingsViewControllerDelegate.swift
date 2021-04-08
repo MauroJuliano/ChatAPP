@@ -11,7 +11,7 @@ import UIKit
 
 class SettingsViewControllerDelegate: NSObject, UITableViewDataSource, UITableViewDelegate{
     var view: SettingsViewController?
-    var settingsArray = ["Edit Profile", "Chats"]
+    var settingsArray = ["Account", "Chats"]
     init(view: SettingsViewController){
         self.view = view
     }
@@ -24,7 +24,13 @@ class SettingsViewControllerDelegate: NSObject, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! settingsTableViewCell
 
         cell.settingsLabel.text = settingsArray[indexPath.row]
-        
+        if cell.settingsLabel.text == "Account" {
+            cell.imageIcon.image = UIImage(systemName: "person.fill")
+            cell.roundedImage.backgroundColor = UIColor(hexString: "9d92e7")
+        }else{
+            cell.imageIcon.image = UIImage(systemName: "square.and.pencil")
+            cell.roundedImage.backgroundColor = UIColor(hexString: "7dc6ea")
+        }
             return cell
         
     }
@@ -35,7 +41,7 @@ class SettingsViewControllerDelegate: NSObject, UITableViewDataSource, UITableVi
         myCustomSelection.backgroundColor = UIColor(hexString: "DCD3FF")
         cell.selectedBackgroundView = myCustomSelection
         
-        if cell.settingsLabel.text == "Edit Profile" {
+        if cell.settingsLabel.text == "Account" {
             if let vc = UIStoryboard(name: "EditProfile", bundle: nil).instantiateInitialViewController() as? EditProfilerViewController {
                 vc.users.append(contentsOf: self.view!.users)
                 

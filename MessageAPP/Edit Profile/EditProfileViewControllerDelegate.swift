@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
-class EditProfileViewControllerDelegate : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class EditProfileViewControllerDelegate : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
     var view = EditProfilerViewController()
     var ref: DatabaseReference!
     private let db = Firestore.firestore()
@@ -80,5 +80,9 @@ class EditProfileViewControllerDelegate : NSObject, UIImagePickerControllerDeleg
                 ])
         }
         }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        return newText.count < 50
+    }
     }
 

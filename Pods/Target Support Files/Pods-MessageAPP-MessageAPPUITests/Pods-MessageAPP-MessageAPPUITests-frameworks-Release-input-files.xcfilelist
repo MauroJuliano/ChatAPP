@@ -17,6 +17,7 @@ ${BUILT_PRODUCTS_DIR}/JJFloatingActionButton/JJFloatingActionButton.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
+${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework
 ${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework
 ${BUILT_PRODUCTS_DIR}/SmoothButton/SmoothButton.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

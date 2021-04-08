@@ -80,7 +80,7 @@ class ChatTableViewDelegateDataSource: NSObject, UITableViewDelegate, UITableVie
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count >= 3 {
+        if searchText.count >= 2 {
             filterArray(searchIn: searchText)
         }
         if searchText == "" {

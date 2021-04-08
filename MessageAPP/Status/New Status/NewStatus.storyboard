@@ -32,7 +32,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-tO-VBO" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
                                 <rect key="frame" x="8" y="44" width="398" height="717"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="she" translatesAutoresizingMaskIntoConstraints="NO" id="YyZ-2u-qqI">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YyZ-2u-qqI">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="717"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="398" id="Jbs-4K-toy"/>
@@ -221,6 +221,5 @@
         <image name="camera.on.rectangle.fill" catalog="system" width="128" height="96"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="98"/>
         <image name="return" catalog="system" width="128" height="101"/>
-        <image name="she" width="3984" height="5976"/>
     </resources>
 </document>

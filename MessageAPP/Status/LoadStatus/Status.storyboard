@@ -62,7 +62,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn0-51-vfZ" customClass="RoundedView" customModule="MessageAPP" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="399" height="687"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="she" translatesAutoresizingMaskIntoConstraints="NO" id="ACT-NW-HC6">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACT-NW-HC6">
                                                             <rect key="frame" x="0.0" y="0.0" width="399" height="687"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="687" id="3Ju-oz-aG3"/>

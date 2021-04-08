@@ -55,7 +55,6 @@ class UserRequest {
                                                        email: email,
                                                        name: name, image: image,
                                                        bio: bio, hasStatusActive: hasStatusActive ?? false))
-                   // completionHandler(true,nil)
              }
          }
                 completionHandler(true,nil)

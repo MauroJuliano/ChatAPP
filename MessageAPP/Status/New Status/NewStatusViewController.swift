@@ -12,6 +12,8 @@ import FirebaseStorage
 import FirebaseAuth
 import Firebase
 import SmoothButton
+import SkeletonView
+
 class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let ref: DatabaseReference = Database.database().reference()
@@ -19,7 +21,7 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
     
 
     @IBOutlet weak var sendTo: RoundedView!
-    
+    private var gameTimer: Timer?
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var uploadButton: SmoothButton!
@@ -27,15 +29,23 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var barLeft: UIView!
     @IBOutlet weak var roundLeft: UIView!
     @IBOutlet weak var imageView: UIImageView!
-   
+    @IBOutlet weak var skeletonViewText: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         blurView.layer.cornerRadius = 25
         blurView.clipsToBounds = true
+        uploadButton.isHidden = true
+
         sendToConfig()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        imageView.isSkeletonable = true
+        imageView.showAnimatedSkeleton()
+    }
     override func viewDidAppear(_ animated: Bool) {
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             guard imageView == nil else { return }
             openCamera()
@@ -86,9 +96,14 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        imageView.hideSkeleton()
         if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageView.contentMode = .scaleAspectFill
+            
             imageView.image = chosenImage
+            uploadButton.isHidden = false
+        
             
         }
         dismiss(animated: true, completion: nil)

@@ -25,8 +25,10 @@ class EditProfilerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-         
+        self.navigationController?.navigationBar.tintColor = .black
         controller = EditProfileViewControllerDelegate(view: self)
+        bioTextView.delegate = controller
+        self.title = "Account"
         setup()
         // Do any additional setup after loading the view.
         
@@ -40,6 +42,7 @@ class EditProfilerViewController: UIViewController {
             bioTextView.backgroundColor = UIColor(hexString: "EEEEEE")
             let url = URL(string: itens.image)
             editImageView.kf.setImage(with: url)
+            
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(addTapped))
