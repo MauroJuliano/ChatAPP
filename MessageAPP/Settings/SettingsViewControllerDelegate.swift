@@ -47,8 +47,16 @@ class SettingsViewControllerDelegate: NSObject, UITableViewDataSource, UITableVi
                 
                 self.view?.navigationController?.pushViewController(vc, animated: true)
             }
+        }else if  cell.settingsLabel.text == "Chats"{
+            if let vc = UIStoryboard(name: "CustomChat", bundle: nil).instantiateInitialViewController() as? CustomChatViewController {
+
+                           self.view?.navigationController?.pushViewController(vc, animated: true)
+                       }
         }
     }
     
+    func navigateTo(name: String, vc: UIViewController){
+        
+    }
     
 }

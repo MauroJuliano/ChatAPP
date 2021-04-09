@@ -34,6 +34,10 @@
 		3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DA260A6F8900512011 /* BATabBarController.swift */; };
 		3253A2DE260A72FA00512011 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3253A2DD260A72FA00512011 /* TabBarViewController.swift */; };
 		3253A2E0260A731300512011 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3253A2DF260A731300512011 /* TabBar.storyboard */; };
+		326BF2C626206FC200CD335C /* CustomChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF2C526206FC200CD335C /* CustomChatViewController.swift */; };
+		326BF2C82620704900CD335C /* CustomChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326BF2C72620704900CD335C /* CustomChat.storyboard */; };
+		326BF2CA2620854200CD335C /* CustomChatsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF2C92620854200CD335C /* CustomChatsViewControllerDelegate.swift */; };
+		326BF2CC262087E900CD335C /* CustomChatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BF2CB262087E800CD335C /* CustomChatsCollectionViewCell.swift */; };
 		3274E2F52613ACF1001445EC /* EditProfileViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274E2F42613ACF1001445EC /* EditProfileViewControllerDelegate.swift */; };
 		32869E662616056F0047467B /* LoadStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32869E652616056F0047467B /* LoadStatusCollectionViewCell.swift */; };
 		32869E68261607450047467B /* StatusViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32869E67261607450047467B /* StatusViewControllerDelegate.swift */; };
@@ -115,6 +119,10 @@
 		3253A2DA260A6F8900512011 /* BATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BATabBarController.swift; sourceTree = "<group>"; };
 		3253A2DD260A72FA00512011 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3253A2DF260A731300512011 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		326BF2C526206FC200CD335C /* CustomChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChatViewController.swift; sourceTree = "<group>"; };
+		326BF2C72620704900CD335C /* CustomChat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomChat.storyboard; sourceTree = "<group>"; };
+		326BF2C92620854200CD335C /* CustomChatsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChatsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		326BF2CB262087E800CD335C /* CustomChatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		3274E2F42613ACF1001445EC /* EditProfileViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewControllerDelegate.swift; sourceTree = "<group>"; };
 		32869E652616056F0047467B /* LoadStatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		32869E67261607450047467B /* StatusViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 		3252CA222605117C00334218 /* MessageAPP */ = {
 			isa = PBXGroup;
 			children = (
+				326BF2C426206EBA00CD335C /* customChat */,
 				32412BEF26136A7C0010142F /* Status */,
 				3233597726121C96005A71E5 /* Edit Profile */,
 				32A5746E260B806E000079EA /* Settings */,
@@ -301,6 +310,17 @@
 				3253A2DF260A731300512011 /* TabBar.storyboard */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		326BF2C426206EBA00CD335C /* customChat */ = {
+			isa = PBXGroup;
+			children = (
+				326BF2C526206FC200CD335C /* CustomChatViewController.swift */,
+				326BF2C92620854200CD335C /* CustomChatsViewControllerDelegate.swift */,
+				326BF2CB262087E800CD335C /* CustomChatsCollectionViewCell.swift */,
+				326BF2C72620704900CD335C /* CustomChat.storyboard */,
+			);
+			path = customChat;
 			sourceTree = "<group>";
 		};
 		32869E63261604CE0047467B /* New Status */ = {
@@ -521,6 +541,7 @@
 				32B6167F2605382A0072E1A2 /* he.jpg in Resources */,
 				323C1C1D2614E283005E3C65 /* Status.storyboard in Resources */,
 				3252CA2B2605117C00334218 /* Chats.storyboard in Resources */,
+				326BF2C82620704900CD335C /* CustomChat.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,15 +687,18 @@
 				32DB89E92608B5A000325725 /* ChatsViewController.swift in Sources */,
 				32869E662616056F0047467B /* LoadStatusCollectionViewCell.swift in Sources */,
 				3252CA57260514AC00334218 /* ChatTableViewCell.swift in Sources */,
+				326BF2CA2620854200CD335C /* CustomChatsViewControllerDelegate.swift in Sources */,
 				3274E2F52613ACF1001445EC /* EditProfileViewControllerDelegate.swift in Sources */,
 				32A57474260B8B4F000079EA /* Users.swift in Sources */,
 				32A57470260B80A9000079EA /* SettingsViewController.swift in Sources */,
+				326BF2C626206FC200CD335C /* CustomChatViewController.swift in Sources */,
 				32412BF126136B340010142F /* NewStatusViewController.swift in Sources */,
 				322BEB252608C31D00ACC7B5 /* customTextField.swift in Sources */,
 				32D743DB260D04B7005ADC70 /* SettingsViewControllerDelegate.swift in Sources */,
 				3233597926121CBA005A71E5 /* EditProfilerViewController.swift in Sources */,
 				3252CA242605117C00334218 /* AppDelegate.swift in Sources */,
 				32D6169C260A076200F9B563 /* RegisterViewController.swift in Sources */,
+				326BF2CC262087E900CD335C /* CustomChatsCollectionViewCell.swift in Sources */,
 				3253A2DB260A6F8900512011 /* BATabBarController.swift in Sources */,
 				323C1C1F2614F18B005E3C65 /* StatusRequest.swift in Sources */,
 				32869E68261607450047467B /* StatusViewControllerDelegate.swift in Sources */,
