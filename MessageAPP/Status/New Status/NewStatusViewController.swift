@@ -119,6 +119,7 @@ class NewStatusViewController: UIViewController, UIImagePickerControllerDelegate
         self.saveFIRData(completionHandler: { success, _ in
             if success {
                 self.uploadButton.isLoading = false
+                 self.dismiss(animated: true, completion: nil)
             }
         })
         

@@ -39,9 +39,9 @@ class StatusRequest {
     let currentDate = Date().timeIntervalSince1970
     var userStatusDelete = [String]()
     func getStatus(ChildKey: String, completionHandler: @escaping (_ result: Bool,_ error: Bool?) -> Void){
-        
-        reference = db.collection("stories")
-        reference?.getDocuments { (querySnapshot, err) in
+       
+        let status = db.collection("stories").order(by: "TimeStamp", descending: false)
+        status.getDocuments { (querySnapshot, err) in
             if let err = err {
                 
             }else{

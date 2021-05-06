@@ -69,7 +69,7 @@ class RegisterViewController: UIViewController {
                  if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabBarViewController {
                          vc.modalPresentationStyle = .fullScreen
                           self.present(vc, animated: true, completion: nil)
-                       }
+            }
             }
         })
     }

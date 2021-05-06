@@ -24,6 +24,17 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MNg-Vf-9LO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daiarogu" translatesAutoresizingMaskIntoConstraints="NO" id="mro-mO-jfp">
+                                                    <rect key="frame" x="33" y="50" width="348" height="197"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mro-mO-jfp" secondAttribute="trailing" constant="33" id="IA1-ah-PhZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="mro-mO-jfp" secondAttribute="bottom" constant="339" id="PNE-Qm-nDr"/>
+                                                <constraint firstItem="mro-mO-jfp" firstAttribute="top" secondItem="MNg-Vf-9LO" secondAttribute="top" constant="50" id="QJv-nZ-fgZ"/>
+                                                <constraint firstItem="mro-mO-jfp" firstAttribute="leading" secondItem="MNg-Vf-9LO" secondAttribute="leading" constant="33" id="hhF-I3-otF"/>
+                                            </constraints>
                                         </view>
                                         <blurEffect style="regular"/>
                                     </visualEffectView>
@@ -67,7 +78,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxm-FQ-XWU" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="57" y="630" width="300" height="34"/>
+                                <rect key="frame" x="57" y="630" width="300" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -80,7 +91,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-4W-mrx" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-4W-mrx" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="57" y="686" width="300" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -139,7 +150,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5r-Nb-B9c">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5r-Nb-B9c">
                                 <rect key="frame" x="53" y="755" width="309" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal">
@@ -214,6 +225,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="daiarogu" width="902" height="516"/>
         <namedColor name="label">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
